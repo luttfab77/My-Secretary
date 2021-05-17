@@ -1,0 +1,36 @@
+.parent{
+    -fx-background-color: transparent;
+}
+.pane{
+    -fx-background-color: #28272f;
+    -fx-background-radius: 15px;
+}
+.trans-btn-pink-border{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-text-fill: white;
+}
+.white-pane{
+    -fx-background-color: transparent;
+}
+.animated-panel{
+    -fx-background-color: #38383e;
+    -fx-background-radius: 15px;
+}
+.textfield_box{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-text-fill: white;
+}
+.textfield{
+    -fx-background-color: transparent;
+}
+.pink-btn{
+    -fx-background-color: #f42d76;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
