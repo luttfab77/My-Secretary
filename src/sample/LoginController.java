@@ -23,7 +23,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize (URL url, ResourceBundle rb) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
         transition.setToX(vbox.getLayoutX() * 20);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -35,8 +35,8 @@ public class LoginController implements Initializable {
         });
     }
     @FXML
-    private void open_signin () {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
+    private void openSignin() {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
         transition.setToX(vbox.getLayoutX() * 20);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -48,8 +48,8 @@ public class LoginController implements Initializable {
         });
     }
     @FXML
-    private void open_signup (){
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
+    private void openSignup(){
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
         transition.setToX(0);
         transition.play();
         transition.setOnFinished((e) -> {

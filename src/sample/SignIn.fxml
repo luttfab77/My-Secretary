@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="animated-panel" stylesheets="@/design/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="animated-panel" stylesheets="@/design/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1 ">
     <Label fx:id="lbl_login" text="Login" textFill="#ffffff">
         <font>
             <Font size="20.0" />
@@ -22,13 +22,13 @@
         <VBox.margin>
             <Insets left="15.0" right="15.0" top="15.0" />
         </VBox.margin>
-        <TextField fx:id="txt_email" promptText="E-Mail" styleClass="textfield_box" HBox.hgrow="ALWAYS" />
+        <TextField fx:id="txt_email" promptText="Username" styleClass="textfield_box" HBox.hgrow="ALWAYS" />
     </HBox>
     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets left="15.0" right="15.0" top="20.0"/>
+            <Insets left="15.0" right="15.0" top="20.0" />
         </VBox.margin>
-        <PasswordField fx:id="pwd_Password" prefHeight="25.0" prefWidth="450.0" promptText="Password" styleClass="textfield_box"/>
+        <PasswordField fx:id="pwd_Password" prefHeight="25.0" prefWidth="450.0" promptText="Password" styleClass="textfield_box" />
     </HBox>
     <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="456.0" styleClass="pink-btn" text="Sign In" textFill="WHITE" VBox.vgrow="ALWAYS">
         <VBox.margin>
