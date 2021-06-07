@@ -1,4 +1,4 @@
-package home;
+package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -106,10 +106,8 @@ public class DashboardController implements Initializable {
 
         for (Pane pane : paneArray) {
             if (pane.getId().equals(chosenPanel)) {
-                System.out.println(pane.getId());
                 pane.toFront();
             }
-
         }
     }
 }

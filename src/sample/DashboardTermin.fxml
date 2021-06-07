@@ -12,7 +12,7 @@
     <children>
         <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/icons8-meeting-room-32.png" />
+                <Image url="@/images/icons8-meeting-room-32.png" />
             </image>
             <HBox.margin>
                 <Insets left="10.0" />
@@ -34,7 +34,7 @@
                 <Insets />
             </HBox.margin>
         </Label>
-        <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="active">
+        <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@/design/Dashboard.css" text="active">
             <HBox.margin>
                 <Insets />
             </HBox.margin>
