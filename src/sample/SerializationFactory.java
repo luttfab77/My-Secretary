@@ -38,6 +38,13 @@ public class SerializationFactory
         System.out.println(objects);
     }
 
+    public boolean exists(Serializable ser) {
+        if (objects.contains(ser)) {
+            return true;
+        }
+        return false;
+    }
+
 
     public void persist() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("serialObjects.ser"))) {

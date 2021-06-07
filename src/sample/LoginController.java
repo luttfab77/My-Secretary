@@ -5,9 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -15,9 +19,12 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    static Stage stage = new Stage();
+
     @FXML
     private VBox vbox;
     private Parent fxml;
+
 
 
 
@@ -59,6 +66,21 @@ public class LoginController implements Initializable {
                 vbox.getChildren().setAll(fxml);
             } catch(IOException ignored) { }
         });
+    }
+
+    public void showLogin() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setTitle("MySecretary");
+        stage.getIcons().add(new Image("/images/Logos.png"));
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();
+    }
+
+    public static void closeLogin() {
+        stage.close();
     }
 
 }

@@ -15,16 +15,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-        Scene scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
-        primaryStage.setTitle("MySecretary");
-        primaryStage.getIcons().add(new Image("/images/Logos.png"));
-        primaryStage.setScene(scene);
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.show();
+        LoginController loginController = new LoginController();
+        loginController.showLogin();
     }
 
+    @Override
+    public void init() throws Exception {
+        SerializationFactory.getInstance().restore();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        SerializationFactory.getInstance().persist();
+    }
 
     public static void main(String[] args) {
         launch(args);
