@@ -1,20 +1,44 @@
 package sample;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calendar
+public class Calendar implements Serializable
 {
     private List<Appointment> appointments;
+    private String username;
+
+    public List<Appointment> getAppointments() { return appointments; }
+    public void setAppointments(List<Appointment> appointments) { this.appointments = appointments; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
     public Calendar()
     {
-        appointments = new ArrayList<>();
+        this.appointments = new ArrayList<>();
+        this.username = "";
     }
-    
+
+
     public void addAppointment(Appointment iAppointment){
+        iAppointment.setUsername(getUsername());
         if (!this.appointments.contains(iAppointment)){
             this.appointments.add(iAppointment);
+        }
+    }
+
+    public void removeAppointment(Appointment iAppointment){
+        iAppointment.setUsername(getUsername());
+        if (this.appointments.contains(iAppointment)){
+            this.appointments.remove(iAppointment);
+            SerializationFactory.getInstance().remove(iAppointment);
         }
     }
 
@@ -30,5 +54,20 @@ public class Calendar
         }
 
         return reString.toString();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Calendar iCalendar = (Calendar) o;
+
+        return getUsername().equals(iCalendar.getUsername());
     }
 }
