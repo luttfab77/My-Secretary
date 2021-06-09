@@ -8,7 +8,8 @@ import java.io.IOException;
 
 public class SignInController {
 
-    DashboardController dashboardController = new DashboardController();
+    User signedinUser;
+    DashboardController dashboardController;
 
     @FXML
     TextField txt_username;
@@ -17,9 +18,19 @@ public class SignInController {
 
     @FXML
     private void signInUser() throws IOException {
-        User signedinUser = SerializationFactory.getInstance().selectUserByUsernamePassword(txt_username.getText(), pwd_password.getText());
-        LoginController.closeLogin();
-        dashboardController.showDashboard();
+        if (SerializationFactory.getInstance().exists(SerializationFactory.getInstance().selectUserByUsernamePassword(txt_username.getText().toLowerCase(), pwd_password.getText()))) {
+            signedinUser = SerializationFactory.getInstance().selectUserByUsernamePassword(txt_username.getText().toLowerCase(), pwd_password.getText());
+            System.out.printf("Signed in as %s\n", signedinUser.getUsername());
+            LoginController.closeLogin();
+            DashboardController.currentUser = signedinUser;
+            dashboardController = new DashboardController();
+            dashboardController.showDashboard();
+        }
+        else {
+            txt_username.setText("");
+            txt_username.setPromptText("Wrong username or password!");
+            pwd_password.setText("");
+        }
     }
 
 }

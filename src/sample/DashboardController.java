@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,8 +22,9 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    static User currentUser;
+
     double x,y;
-    Stage dashboardStage = new Stage();
 
     @FXML
     private VBox pnl_items = null;
@@ -33,6 +36,15 @@ public class DashboardController implements Initializable {
     @FXML
     private Pane pnl_home;
 
+
+    @FXML
+    Label lbl_username;
+    @FXML
+    Label lbl_passwords;
+    @FXML
+    Label lbl_appointments;
+    @FXML
+    Label lbl_notes;
 
 
     @FXML
@@ -101,11 +113,15 @@ public class DashboardController implements Initializable {
         paneArray[4]=pnl_secretary;
         paneArray[5]=pnl_settings;
         paneArray[6]=pnl_signout;
+
+        fillFields();
     }
 
     public void showDashboard() throws IOException {
         Stage dashboardStage = new Stage();
         Parent DashboardRoot = FXMLLoader.load(Objects.requireNonNull(DashboardController.class.getResource("Dashboard.fxml")));
+        dashboardStage.setTitle("MySecretary");
+        dashboardStage.getIcons().add(new Image("/images/Logos.png"));
         dashboardStage.setScene(new Scene(DashboardRoot));
         //set stage borderless
         dashboardStage.initStyle(StageStyle.UNDECORATED);
@@ -137,5 +153,12 @@ public class DashboardController implements Initializable {
                 pane.toFront();
             }
         }
+    }
+
+    private void fillFields() {
+        lbl_username.setText("HELLO " + currentUser.getUsername().toUpperCase());
+        lbl_passwords.setText(String.valueOf(currentUser.getPm().getPasswords().size()));
+        lbl_appointments.setText(String.valueOf(currentUser.getCalendar().getAppointments().size()));
+        lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));
     }
 }

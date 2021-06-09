@@ -59,10 +59,10 @@ public class SerializationFactory
     public void restore() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("serialObjects.ser"))) {
             objects = (List<Serializable>) ois.readObject();
-//            System.out.println(objects);
+            System.out.println(objects);
         }
         catch (FileNotFoundException e) {
-            System.out.println("No Catalog found! Nothing to restore!");
+            System.out.println("No Users found! Nothing to restore!");
         }
         catch (InvalidClassException e) {
             System.out.println("Catalog contains class description of different version! Nothing to restore!");

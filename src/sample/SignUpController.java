@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class SignUpController {
 
-    DashboardController dashboardController = new DashboardController();
+    DashboardController dashboardController;
 
     @FXML
     private TextField txt_username;
@@ -20,15 +20,22 @@ public class SignUpController {
     @FXML
     private void signUpUser() throws IOException {
         User newUser = new User();
-        newUser.setUsername(txt_username.getText());
+        newUser.setUsername(txt_username.getText().toLowerCase());
         if (txt_username.getText().equals("")) {
-            txt_username.setText("You have to enter a valid username!");
+            txt_username.setPromptText("You have to enter a valid username!");
+            resetFields();
         }
         else if (pwd_password.getText().equals("") || pwd_passwordConfirm.getText().equals("")) {
-            txt_username.setText("You have to enter a password!");
+            txt_username.setPromptText("You have to enter a password!");
+            resetFields();
         }
         else if (SerializationFactory.getInstance().exists(newUser)) {
-            txt_username.setText("This username is already taken!");
+            txt_username.setPromptText("This username is already taken!");
+            resetFields();
+        }
+        else if (!pwd_password.getText().equals(pwd_passwordConfirm.getText())) {
+            txt_username.setPromptText("You couldn't confirm your password!");
+            resetFields();
         }
         else if (pwd_password.getText().equals(pwd_passwordConfirm.getText())) {
             newUser.setPasswordHash(PasswordManagement.encryptPassword(pwd_password.getText()));
@@ -36,8 +43,16 @@ public class SignUpController {
             newUser.save();
             SerializationFactory.getInstance().persist();
             LoginController.closeLogin();
+            DashboardController.currentUser = newUser;
+            dashboardController = new DashboardController();
             dashboardController.showDashboard();
         }
     }
 
+    @FXML
+    private void resetFields() {
+        txt_username.setText("");
+        pwd_password.setText("");
+        pwd_passwordConfirm.setText("");
+    }
 }
