@@ -1,19 +1,43 @@
-.button
-{
--fx-background-color : #05071F;
--fx-text-fill : #e7e5e5;
+.stack-pane{
+    -fx-background-color: #38383e;
 }
-.button:hover{
--fx-background-color : #10165F;
+.pane{
+    -fx-background-color: #38383e;
 }
-.button:pressed
-{
--fx-background-color : #1620A1;
+.v-box-left{
+    -fx-background-color: #28272f;
 }
 
 .scroll-pane {
-    -fx-background-color: #02030A;
+    -fx-background-color: #38383e;
 }
+.single-termin{
+    -fx-background-color: #38383e;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+}
+.noteInput{
+    -fx-background-color: #28272f;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+    -fx-text-fill:white;
+}
+
+
+.button
+{
+-fx-background-color : #28272f;
+-fx-text-fill : #e7e5e5;
+}
+
+.button:hover,.button:pressed
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+
+}
+
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
@@ -33,10 +57,10 @@
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-    -fx-background-color: #10165F;
-    -fx-background-radius: 5em;
+    -fx-background-color: #f42d76;
+    -fx-background-radius: 4em;
 }
 
 .scroll-pane > .corner {
-    -fx-background-color: black;
+    -fx-background-color: #38383e;
 }
