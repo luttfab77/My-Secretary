@@ -55,6 +55,7 @@ public class Main extends Application {
         // Show the first Scene
         LoginController loginController = new LoginController();
         loginController.showLogin();
+
     }
 
     @Override

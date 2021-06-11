@@ -84,35 +84,6 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Node[] nodes = new Node[10];
-        for (int i = 0; i < nodes.length; i++) {
-            try {
-
-                final int j = i;
-                nodes[i] = FXMLLoader.load(getClass().getResource("DashboardTermin.fxml"));
-
-                //give the items some effect
-
-                nodes[i].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-background-color : #0A0E3F");
-                });
-                nodes[i].setOnMouseExited(event -> {
-                    nodes[j].setStyle("-fx-background-color : #02030A");
-                });
-                pnl_items.getChildren().add(nodes[i]);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        pnl_home.toFront();
-
-        paneArray[0]=pnl_home;
-        paneArray[1]=pnl_passwords;
-        paneArray[2]=pnl_calendar;
-        paneArray[3]=pnl_notes;
-        paneArray[4]=pnl_secretary;
-        paneArray[5]=pnl_settings;
-        paneArray[6]=pnl_signout;
 
         fillFields();
     }
@@ -142,23 +113,78 @@ public class DashboardController implements Initializable {
 
     public void handleClicks(ActionEvent actionEvent) {
 
-
         String chosenPanel;
         chosenPanel=actionEvent.getSource().toString();
         chosenPanel=chosenPanel.substring(chosenPanel.indexOf('_')+1,chosenPanel.indexOf(','));
-        chosenPanel="pnl_"+chosenPanel;
 
         for (Pane pane : paneArray) {
-            if (pane.getId().equals(chosenPanel)) {
-                pane.toFront();
+            if(pane.getId().equals("pnl_"+chosenPanel)) {
+                pane.setVisible(true);
+                //Method m = DashboardController.class.getDeclaredMethod("handle_"+chosenPanel);
+                //m.invoke(null);
+                if(pane.getId().equals("pnl_signout")){
+                    handleSignout();
+                }
+            }
+            else{
+                pane.setVisible(false);
             }
         }
     }
 
+    private void handleSignout(){
+        System.exit(0);
+    }
+
     private void fillFields() {
-        lbl_username.setText("HELLO " + currentUser.getUsername().toUpperCase());
+        Node[] nodes = new Node[currentUser.getCalendar().getAppointments().size()];
+        for (int i = 0; i < nodes.length; i++) {
+            try {
+                final int j = i;
+                nodes[i] = FXMLLoader.load(getClass().getResource("DashboardTermin.fxml"));
+
+                nodes[i].setOnMouseEntered(event -> {
+                    nodes[j].setStyle("-fx-border-radius: 5;"+"-fx-border-color: #f42d76");
+                });
+                nodes[i].setOnMouseExited(event ->{
+                    nodes[j].setStyle("-fx-background-color: #38383e");
+                });
+                pnl_items.getChildren().add(nodes[i]);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        paneArray[0]=pnl_home;
+        pnl_home.setVisible(true);
+
+        paneArray[1]=pnl_passwords;
+        pnl_passwords.setVisible(false);
+
+        paneArray[2]=pnl_calendar;
+        pnl_calendar.setVisible(false);
+
+        paneArray[3]=pnl_notes;
+        pnl_notes.setVisible(false);
+
+        paneArray[4]=pnl_secretary;
+        pnl_secretary.setVisible(false);
+
+        paneArray[5]=pnl_settings;
+        pnl_settings.setVisible(false);
+
+        paneArray[6]=pnl_signout;
+        pnl_signout.setVisible(false);
+
+
+        String username = currentUser.getUsername().substring(0,1);
+
+        lbl_username.setText("Welcome, " + currentUser.getUsername().replace(username,username.toUpperCase()));
         lbl_passwords.setText(String.valueOf(currentUser.getPm().getPasswords().size()));
         lbl_appointments.setText(String.valueOf(currentUser.getCalendar().getAppointments().size()));
         lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));
     }
+
+
 }

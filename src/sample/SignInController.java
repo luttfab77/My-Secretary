@@ -1,9 +1,15 @@
 package sample;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 
 public class SignInController {
@@ -32,5 +38,16 @@ public class SignInController {
             pwd_password.setText("");
         }
     }
-
+    @FXML
+    public void checkEnter(){
+        pwd_password.setOnKeyPressed(event -> {
+            if(event.getCode().equals(KeyCode.ENTER)){
+                try {
+                    signInUser();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

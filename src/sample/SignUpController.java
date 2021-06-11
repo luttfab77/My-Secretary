@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 
@@ -34,7 +35,7 @@ public class SignUpController {
             resetFields();
         }
         else if (!pwd_password.getText().equals(pwd_passwordConfirm.getText())) {
-            txt_username.setPromptText("You couldn't confirm your password!");
+            txt_username.setPromptText("Password doesn't match!");
             resetFields();
         }
         else if (pwd_password.getText().equals(pwd_passwordConfirm.getText())) {
@@ -54,5 +55,17 @@ public class SignUpController {
         txt_username.setText("");
         pwd_password.setText("");
         pwd_passwordConfirm.setText("");
+    }
+    @FXML
+    public void checkEnter(){
+        pwd_passwordConfirm.setOnKeyPressed(event -> {
+            if(event.getCode().equals(KeyCode.ENTER)){
+                try {
+                    signUpUser();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

@@ -7,11 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -23,6 +26,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private VBox vbox;
+    @FXML
+    private TextField txt_username;
+    
     private Parent fxml;
 
 
@@ -79,8 +85,11 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
+
+
     public static void closeLogin() {
         stage.close();
     }
+
 
 }
