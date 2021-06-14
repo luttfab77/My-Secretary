@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -26,66 +28,39 @@ public class DashboardController implements Initializable {
 
     double x,y;
 
-    @FXML
-    private VBox pnl_items = null;
-    Pane[] paneArray = new Pane[7];
-
 
     @FXML
     private Button btn_home;
-    @FXML
-    private Pane pnl_home;
-
-
-    @FXML
-    Label lbl_username;
-    @FXML
-    Label lbl_passwords;
-    @FXML
-    Label lbl_appointments;
-    @FXML
-    Label lbl_notes;
-
 
     @FXML
     private Button btn_passwords;
-    @FXML
-    private Pane pnl_passwords;
 
 
     @FXML
     private Button btn_calendar;
-    @FXML
-    private Pane pnl_calendar;
 
 
     @FXML
-    private Button btn_notes;
-    @FXML
-    private Pane pnl_notes;
+    private Button btn_note;
 
 
     @FXML
     private Button btn_secretary;
-    @FXML
-    private Pane pnl_secretary;
-
 
     @FXML
     private Button btn_settings;
-    @FXML
-    private Pane pnl_settings;
 
 
     @FXML
     private Button btn_signout;
+
     @FXML
-    private Pane pnl_signout;
+    private Pane pn_secPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        fillFields();
+        HomeController homeController= new HomeController();
+        homeController.show_home(pn_secPane);
     }
 
     public void showDashboard() throws IOException {
@@ -111,80 +86,23 @@ public class DashboardController implements Initializable {
         dashboardStage.show();
     }
 
-    public void handleClicks(ActionEvent actionEvent) {
+    public void handleClicks(ActionEvent actionEvent) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
 
         String chosenPanel;
         chosenPanel=actionEvent.getSource().toString();
         chosenPanel=chosenPanel.substring(chosenPanel.indexOf('_')+1,chosenPanel.indexOf(','));
 
-        for (Pane pane : paneArray) {
-            if(pane.getId().equals("pnl_"+chosenPanel)) {
-                pane.setVisible(true);
-                //Method m = DashboardController.class.getDeclaredMethod("handle_"+chosenPanel);
-                //m.invoke(null);
-                if(pane.getId().equals("pnl_signout")){
-                    handleSignout();
-                }
-            }
-            else{
-                pane.setVisible(false);
-            }
-        }
+        String chosenController= chosenPanel.substring(0,1);
+        chosenController = "sample."+chosenPanel.replaceFirst(chosenController,chosenController.toUpperCase())+"Controller";
+
+        Class<?> controllerClass = Class.forName(chosenController);
+        Object controller = controllerClass.newInstance();
+        Method handleMethod = controllerClass.getDeclaredMethod("show_"+chosenPanel,Pane.class);
+        handleMethod.invoke(controller,pn_secPane);
     }
 
-    private void handleSignout(){
-        System.exit(0);
-    }
-
-    private void fillFields() {
-        Node[] nodes = new Node[currentUser.getCalendar().getAppointments().size()];
-        for (int i = 0; i < nodes.length; i++) {
-            try {
-                final int j = i;
-                nodes[i] = FXMLLoader.load(getClass().getResource("DashboardTermin.fxml"));
-
-                nodes[i].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-border-radius: 5;"+"-fx-border-color: #f42d76");
-                });
-                nodes[i].setOnMouseExited(event ->{
-                    nodes[j].setStyle("-fx-background-color: #38383e");
-                });
-                pnl_items.getChildren().add(nodes[i]);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        paneArray[0]=pnl_home;
-        pnl_home.setVisible(true);
-
-        paneArray[1]=pnl_passwords;
-        pnl_passwords.setVisible(false);
-
-        paneArray[2]=pnl_calendar;
-        pnl_calendar.setVisible(false);
-
-        paneArray[3]=pnl_notes;
-        pnl_notes.setVisible(false);
-
-        paneArray[4]=pnl_secretary;
-        pnl_secretary.setVisible(false);
-
-        paneArray[5]=pnl_settings;
-        pnl_settings.setVisible(false);
-
-        paneArray[6]=pnl_signout;
-        pnl_signout.setVisible(false);
 
 
-        String username = currentUser.getUsername().substring(0,1);
-
-        lbl_username.setText("Welcome, " + currentUser.getUsername().replace(username,username.toUpperCase()));
-        lbl_passwords.setText(String.valueOf(currentUser.getPm().getPasswords().size()));
-        lbl_appointments.setText(String.valueOf(currentUser.getCalendar().getAppointments().size()));
-        lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));
-    }
 
 
 }

@@ -28,7 +28,7 @@ public class SignInController {
             signedinUser = SerializationFactory.getInstance().selectUserByUsernamePassword(txt_username.getText().toLowerCase(), pwd_password.getText());
             System.out.printf("Signed in as %s\n", signedinUser.getUsername());
             LoginController.closeLogin();
-            DashboardController.currentUser = signedinUser;
+            HomeController.currentUser = signedinUser;
             dashboardController = new DashboardController();
             dashboardController.showDashboard();
         }

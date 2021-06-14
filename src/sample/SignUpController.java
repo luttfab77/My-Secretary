@@ -44,7 +44,7 @@ public class SignUpController {
             newUser.save();
             SerializationFactory.getInstance().persist();
             LoginController.closeLogin();
-            DashboardController.currentUser = newUser;
+            HomeController.currentUser = newUser;
             dashboardController = new DashboardController();
             dashboardController.showDashboard();
         }
