@@ -22,6 +22,10 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    static int counterDashboards = 0;
+
+    static Stage dashboardStage = new Stage();
+
     static User currentUser;
 
     double x,y;
@@ -62,13 +66,16 @@ public class DashboardController implements Initializable {
     }
 
     public void showDashboard() throws IOException {
-        Stage dashboardStage = new Stage();
         Parent DashboardRoot = FXMLLoader.load(Objects.requireNonNull(DashboardController.class.getResource("Dashboard.fxml")));
         dashboardStage.setTitle("MySecretary");
         dashboardStage.getIcons().add(new Image("/at/mysecretary/images/Logos.png"));
         dashboardStage.setScene(new Scene(DashboardRoot));
-        //set stage borderless
-        dashboardStage.initStyle(StageStyle.UNDECORATED);
+
+        if (counterDashboards == 0) {
+            //set stage borderless
+            dashboardStage.initStyle(StageStyle.UNDECORATED);
+            counterDashboards = counterDashboards + 1;
+        }
 
         //drag it here
         DashboardRoot.setOnMousePressed(event -> {
@@ -99,7 +106,10 @@ public class DashboardController implements Initializable {
         handleMethod.invoke(controller,pn_secPane);
     }
 
-
+    public static void closeDashboard() {
+        System.out.println("Sollte jetzt closen");
+        dashboardStage.close();
+    }
 
 
 

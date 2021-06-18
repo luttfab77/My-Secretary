@@ -9,7 +9,8 @@ public class SignoutController {
     }
 
     public void show_signout(Pane pn_secPane) throws IOException {
-        //LoginController loginController = new LoginController();
-        //loginController.showLogin();
+        DashboardController.closeDashboard();
+        LoginController loginController = new LoginController();
+        loginController.showLogin();
     }
 }

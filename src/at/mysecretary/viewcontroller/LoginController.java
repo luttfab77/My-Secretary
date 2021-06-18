@@ -29,12 +29,12 @@ public class LoginController implements Initializable {
     
     private Parent fxml;
 
-
+    static int counterLogins = 0;
 
 
     @Override
     public void initialize (URL url, ResourceBundle rb) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
         transition.setToX(vbox.getLayoutX() * 20);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -47,7 +47,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void openSignin() {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
         transition.setToX(vbox.getLayoutX() * 20);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -60,7 +60,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void openSignup(){
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1.5), vbox);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
         transition.setToX(0);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -79,11 +79,13 @@ public class LoginController implements Initializable {
         stage.setTitle("MySecretary");
         stage.getIcons().add(new Image("/at/mysecretary/images/Logos.png"));
         stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+
+        if (counterLogins == 0) {
+            stage.initStyle(StageStyle.TRANSPARENT);
+            counterLogins = counterLogins + 1;
+        }
         stage.show();
     }
-
-
 
     public static void closeLogin() {
         stage.close();
