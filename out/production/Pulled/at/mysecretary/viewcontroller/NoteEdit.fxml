@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #28272f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.NoteEditController">
+   <children>
+      <Button fx:id="btn_notesave" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveNote" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #28272f; -fx-border-color: f42d76; -fx-border-radius: 5;" text="Save" textFill="WHITE" />
+      <Line endX="492.99993896484375" endY="-1.52587890625E-5" layoutX="106.0" layoutY="66.0" startX="-107.0" startY="-1.52587890625E-5" stroke="WHITE" style="-fx-fill: #28272f;" />
+      <TextArea fx:id="txt_notedescription" layoutX="14.0" layoutY="146.0" prefHeight="231.0" prefWidth="570.0" promptText="Text" style="-fx-control-inner-background: #28272f;" styleClass="note-edit" stylesheets="@../design/Dashboard.css">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="btn_notecancel" layoutX="454.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelNote" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #28272f; -fx-border-color: f42d76; -fx-border-radius: 5;" text="Cancel" textFill="WHITE" />
+      <TextField fx:id="txt_notetitle" layoutX="14.0" layoutY="79.0" prefHeight="34.0" prefWidth="570.0" promptText="Title" styleClass="noteInput" stylesheets="@../design/Dashboard.css">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btn_notedelete" layoutX="235.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #28272f; -fx-border-color: f42d76; -fx-border-radius: 5;" text="Delete" textFill="WHITE" />
+   </children>
+</AnchorPane>

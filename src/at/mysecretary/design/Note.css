@@ -1,0 +1,26 @@
+.note-list{
+    -fx-background-color: #38383e;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+}
+
+.single-note{
+    -fx-background-color: #38383e;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+}
+
+
+.text-field,.text-area{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+    -fx-text-fill:white;
+}
+
+.single-note:hover,.single-note:pressed
+{
+    -fx-background-color: #40403f;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+}

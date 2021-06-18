@@ -1,0 +1,68 @@
+/* Sets background for left/right vbox */
+.v-box-left{
+    -fx-background-color: #28272f;
+}
+.pane-right{
+    -fx-background-color: #38383e;
+
+}
+
+/* Sets Backfground for ScrollPane */
+.scroll-pane {
+    -fx-background-color: #38383e;
+}
+.appointment{
+    -fx-background-color: #38383e;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+}
+
+/* Sets various rules for every textfield */
+.text-field,.text-area{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+    -fx-text-fill:white;
+}
+
+/* Sets rules for every button */
+.button
+{
+-fx-background-color : transparent;
+-fx-text-fill : #e7e5e5;
+}
+
+.button:hover,.button:pressed,.toggle-button
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+
+}
+
+/* Sets rules for the scroll-bar in home.fxml */
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #f42d76;
+    -fx-background-radius: 4em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: #38383e;
+}
