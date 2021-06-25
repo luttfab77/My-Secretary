@@ -1,14 +1,23 @@
 package at.mysecretary.viewcontroller;
 
+import at.mysecretary.model.Note;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
+import javax.print.DocFlavor;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.zip.InflaterInputStream;
 
-public class NoteListItemController
+public class NoteListItemController implements Initializable
 {
 
     @FXML
@@ -17,9 +26,35 @@ public class NoteListItemController
     Label lbl_description;
 
 
+    Note iNote;
+
+    FXMLLoader fxmlLoader = null;
+    NoteEditController noteEditController = null;
+    Pane pane = null;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        fxmlLoader = new FXMLLoader(getClass().getResource("NoteEdit.fxml"));
+        try
+        {
+            pane = fxmlLoader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        noteEditController = fxmlLoader.getController();
+    }
+
 
     public void clickOnNoteListItem(){
-        System.out.println("Ich wurde gedrückt.");
+
+        noteEditController.iNote = this.iNote;
+        noteEditController.fillFields();
+        noteEditController.show_noteEdit(NoteController.actualPane,pane);
+
     }
 
     public void setTitleDescription(String title, String description){
