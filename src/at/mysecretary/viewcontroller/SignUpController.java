@@ -3,6 +3,7 @@ package at.mysecretary.viewcontroller;
 import at.mysecretary.model.PasswordManagement;
 import at.mysecretary.model.SerializationFactory;
 import at.mysecretary.model.User;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -103,5 +104,11 @@ public class SignUpController {
                 }
             }
         });
+    }
+
+
+    @FXML
+    public void exit(){
+        Platform.exit();
     }
 }

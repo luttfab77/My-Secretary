@@ -38,4 +38,12 @@
             <Font size="17.0" />
         </font>
     </Button>
+   <Button fx:id="btn_exit" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="456.0" styleClass="pink-btn" text="Exit" textFill="WHITE">
+      <font>
+         <Font size="17.0" />
+      </font>
+      <VBox.margin>
+         <Insets left="15.0" right="15.0" top="20.0" />
+      </VBox.margin>
+   </Button>
 </VBox>

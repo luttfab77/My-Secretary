@@ -1,6 +1,7 @@
 package at.mysecretary.viewcontroller;
 
 import at.mysecretary.model.User;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -45,16 +47,17 @@ public class DashboardController implements Initializable {
     @FXML
     private Button btn_note;
 
-
     @FXML
     private Button btn_secretary;
 
     @FXML
     private Button btn_settings;
 
-
     @FXML
     private Button btn_signout;
+
+    @FXML
+    private ImageView img_exit;
 
     @FXML
     private Pane pn_secPane;
@@ -63,6 +66,7 @@ public class DashboardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         HomeController homeController= new HomeController();
         homeController.show_home(pn_secPane);
+        img_exit.setImage(new Image("/at/mysecretary/images/icons8_exit_30px.png"));
     }
 
     public void showDashboard() throws IOException {
@@ -110,6 +114,7 @@ public class DashboardController implements Initializable {
         dashboardStage.close();
     }
 
-
-
+    public void exit(){
+        Platform.exit();
+    }
 }
