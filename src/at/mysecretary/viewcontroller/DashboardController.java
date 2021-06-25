@@ -60,6 +60,9 @@ public class DashboardController implements Initializable {
     private ImageView img_exit;
 
     @FXML
+    private ImageView img_minimize;
+
+    @FXML
     private Pane pn_secPane;
 
     @Override
@@ -67,6 +70,7 @@ public class DashboardController implements Initializable {
         HomeController homeController= new HomeController();
         homeController.show_home(pn_secPane);
         img_exit.setImage(new Image("/at/mysecretary/images/icons8_exit_30px.png"));
+        img_minimize.setImage(new Image("/at/mysecretary/images/icons8_minimize_48px.png"));
     }
 
     public void showDashboard() throws IOException {
@@ -116,5 +120,8 @@ public class DashboardController implements Initializable {
 
     public void exit(){
         Platform.exit();
+    }
+    public void minimize(){
+       dashboardStage.setIconified(true);
     }
 }

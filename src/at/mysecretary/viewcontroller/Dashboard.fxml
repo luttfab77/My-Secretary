@@ -124,6 +124,7 @@
       </VBox>
       <Pane fx:id="pn_secPane" layoutX="258.0" prefHeight="576.0" prefWidth="793.0" />
       <ImageView fx:id="img_exit" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <ImageView fx:id="img_minimize" fitHeight="20.0" fitWidth="20.0" layoutX="35.0" layoutY="10.0" onMouseClicked="#minimize" pickOnBounds="true" preserveRatio="true" />
    </children>
    <effect>
       <DropShadow color="#1b1eeb" />
