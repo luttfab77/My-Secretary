@@ -68,7 +68,12 @@ public class HomeController implements Initializable {
 
         String username = currentUser.getUsername().substring(0,1);
 
-        lbl_username.setText("Welcome, " + currentUser.getUsername().replaceFirst(username,username.toUpperCase()));
+        if (currentUser.getFirstname().equals("") && currentUser.getLastname().equals("")) {
+            lbl_username.setText("Welcome, " + currentUser.getUsername().replaceFirst(username,username.toUpperCase()));
+        }
+        else {
+            lbl_username.setText("Welcome, " + currentUser.getFirstname().replaceFirst(currentUser.getFirstname().substring(0, 1), currentUser.getFirstname().substring(0, 1).toUpperCase()) + " " + currentUser.getLastname().replaceFirst(currentUser.getLastname().substring(0, 1), currentUser.getLastname().substring(0, 1).toUpperCase()));
+        }
         lbl_passwords.setText(String.valueOf(currentUser.getPm().getPasswords().size()));
         lbl_appointments.setText(String.valueOf(currentUser.getCalendar().getAppointments().size()));
         lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));

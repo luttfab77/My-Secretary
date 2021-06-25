@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class SecretaryController {
+
     public SecretaryController() {
     }
 
