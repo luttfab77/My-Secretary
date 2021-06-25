@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import java.awt.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -20,47 +20,52 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    /**
+     * Stage for the Login Windows
+     */
     static Stage stage = new Stage();
 
+    /**
+     * vbox
+     */
     @FXML
     private VBox vbox;
-    @FXML
-    private TextField txt_username;
-    
+
+    /**
+     * Parent for the fxml
+     */
     private Parent fxml;
 
+    /**
+     * Counter of current amount of logins
+     */
     static int counterLogins = 0;
 
 
+    /**
+     * Method gets called every time this class gets opened
+     */
     @Override
     public void initialize (URL url, ResourceBundle rb) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
-        transition.setToX(vbox.getLayoutX() * 20);
-        transition.play();
-        transition.setOnFinished((e) -> {
-            try {
-                fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SignIn.fxml")));
-                vbox.getChildren().removeAll();
-                vbox.getChildren().setAll(fxml);
-            } catch (IOException ignored) { }
-        });
+        createSignInTransition();
     }
+
+    /**
+     * Gets called if the user presses on the SignIn button
+     * Sets a transition and shows the SignIn.fxml file
+     */
     @FXML
     private void openSignin() {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
-        transition.setToX(vbox.getLayoutX() * 20);
-        transition.play();
-        transition.setOnFinished((e) -> {
-            try {
-                fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SignIn.fxml")));
-                vbox.getChildren().removeAll();
-                vbox.getChildren().setAll(fxml);
-            } catch (IOException ignored) { }
-        });
+        createSignInTransition();
     }
+
+    /**
+     * Gets called if the user presses on the SignUp button
+     * Sets a transition and shows the SignUp.fxml file
+     */
     @FXML
     private void openSignup(){
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), vbox);
+        TranslateTransition transition = setTransition();
         transition.setToX(0);
         transition.play();
         transition.setOnFinished((e) -> {
@@ -72,6 +77,9 @@ public class LoginController implements Initializable {
         });
     }
 
+    /**
+     * Shows the login stage
+     */
     public void showLogin() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root);
@@ -87,6 +95,33 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Creates a Transition for the SignIn.fxml file
+     */
+    private void createSignInTransition() {
+        TranslateTransition transition = setTransition();
+        transition.setToX(vbox.getLayoutX() * 20);
+        transition.play();
+        transition.setOnFinished((e) -> {
+            try {
+                fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SignIn.fxml")));
+                vbox.getChildren().removeAll();
+                vbox.getChildren().setAll(fxml);
+            } catch (IOException ignored) { }
+        });
+    }
+
+    /**
+     * Sets a TranslateTransition
+     * @return new TranslateDuration that lasts for 1 second
+     */
+    private TranslateTransition setTransition() {
+        return new TranslateTransition(Duration.seconds(1), vbox);
+    }
+
+    /**
+     * Closes the login stage
+     */
     public static void closeLogin() {
         stage.close();
     }

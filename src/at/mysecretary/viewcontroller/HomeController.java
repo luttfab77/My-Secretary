@@ -74,7 +74,6 @@ public class HomeController implements Initializable {
         lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));
     }
 
-
 }
 
 

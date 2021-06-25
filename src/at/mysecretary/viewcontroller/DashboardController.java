@@ -107,7 +107,6 @@ public class DashboardController implements Initializable {
     }
 
     public static void closeDashboard() {
-        System.out.println("Sollte jetzt closen");
         dashboardStage.close();
     }
 
