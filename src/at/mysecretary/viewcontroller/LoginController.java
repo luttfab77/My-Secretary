@@ -25,6 +25,8 @@ public class LoginController implements Initializable {
      */
     static Stage stage = new Stage();
 
+    double x,y;
+
     /**
      * vbox
      */
@@ -92,6 +94,19 @@ public class LoginController implements Initializable {
             stage.initStyle(StageStyle.TRANSPARENT);
             counterLogins = counterLogins + 1;
         }
+
+        //drag it here
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+
+        });
+
         stage.show();
     }
 

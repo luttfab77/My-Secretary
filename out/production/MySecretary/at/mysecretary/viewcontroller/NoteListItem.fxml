@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="itemNote" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickOnNoteListItem" prefHeight="53.0" prefWidth="695.0" spacing="60.0" styleClass="single-note" stylesheets="@../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.NoteListItemController">
+   <children>
+      <Label fx:id="lbl_title" maxWidth="-Infinity" prefWidth="100.0" text="Title" textFill="#b7c3d7">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="lbl_description" maxWidth="-Infinity" prefWidth="420.0" text="Description" textFill="#b7c3d7" />
+   </children>
+   <effect>
+      <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+   </effect>
+</HBox>

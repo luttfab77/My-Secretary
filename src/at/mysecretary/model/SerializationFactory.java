@@ -73,6 +73,13 @@ public class SerializationFactory
         }
     }
 
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public User selectUserByUsernamePassword(String username,String password)
     {
         User found = null;
