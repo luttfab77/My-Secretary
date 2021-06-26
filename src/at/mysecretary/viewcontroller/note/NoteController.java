@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NoteController implements Initializable
@@ -39,7 +40,7 @@ public class NoteController implements Initializable
 
         Pane newLoadedPane = null;
         try {
-            newLoadedPane = FXMLLoader.load(getClass().getResource("NoteList.fxml"));
+            newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NoteList.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +49,7 @@ public class NoteController implements Initializable
 
     public void add_Note(){
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notes/NoteEdit.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NoteEdit.fxml"));
         Pane pane = null;
         try
         {
