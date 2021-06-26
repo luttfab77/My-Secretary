@@ -1,5 +1,5 @@
 
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.passwords;
 
 import at.mysecretary.model.PasswordsGenerator;
 import javafx.fxml.FXML;
@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 
 public class PasswordsController {
 
@@ -56,7 +57,7 @@ public class PasswordsController {
         public void show_passwords(Pane pn_secPane) {
             Pane newLoadedPane = null;
             try {
-                newLoadedPane = FXMLLoader.load(getClass().getResource("Passwords.fxml"));
+                newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Passwords.fxml")));
             } catch (IOException e) {
                 e.printStackTrace();
             }

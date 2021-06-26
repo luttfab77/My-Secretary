@@ -1,15 +1,14 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.settings;
 
 import at.mysecretary.model.PasswordManagement;
 import at.mysecretary.model.SerializationFactory;
+import at.mysecretary.viewcontroller.home.HomeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 

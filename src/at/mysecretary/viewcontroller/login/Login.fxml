@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="980.0" style="-fx-background-color: transparent;" stylesheets="@/at/mysecretary/design/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="980.0" style="-fx-background-color: transparent;" stylesheets="@/at/mysecretary/design/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.login.LoginController">
     <Pane layoutX="2.0" layoutY="140.0" prefHeight="400.0" prefWidth="980.0" style="-fx-background-color: #28272f; -fx-background-radius: 15px;">
         <Label fx:id="lbl_noaccount" layoutX="21.0" layoutY="150.0" text="Don't have an account?" textFill="WHITE">
             <font>

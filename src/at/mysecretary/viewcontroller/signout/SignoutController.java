@@ -1,5 +1,7 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.signout;
 
+import at.mysecretary.viewcontroller.dashboard.DashboardController;
+import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;

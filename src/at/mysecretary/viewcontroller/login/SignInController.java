@@ -1,7 +1,10 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.login;
 
 import at.mysecretary.model.SerializationFactory;
 import at.mysecretary.model.User;
+import at.mysecretary.viewcontroller.dashboard.DashboardController;
+import at.mysecretary.viewcontroller.home.HomeController;
+import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;

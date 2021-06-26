@@ -1,7 +1,7 @@
 package at.mysecretary.themain;
 
 import at.mysecretary.model.*;
-import at.mysecretary.viewcontroller.LoginController;
+import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Application;
 import java.util.List;
 import java.util.ArrayList;

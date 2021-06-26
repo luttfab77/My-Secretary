@@ -1,6 +1,7 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.dashboard;
 
 import at.mysecretary.model.User;
+import at.mysecretary.viewcontroller.home.HomeController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -104,9 +105,10 @@ public class DashboardController implements Initializable {
         String chosenPanel;
         chosenPanel=actionEvent.getSource().toString();
         chosenPanel=chosenPanel.substring(chosenPanel.indexOf('_')+1,chosenPanel.indexOf(','));
+        System.out.println("Opening " + chosenPanel);
 
         String chosenController= chosenPanel.substring(0,1);
-        chosenController = "at.mysecretary.viewcontroller."+chosenPanel.replaceFirst(chosenController,chosenController.toUpperCase())+"Controller";
+        chosenController = "at.mysecretary.viewcontroller." +chosenPanel + "." +chosenPanel.replaceFirst(chosenController,chosenController.toUpperCase())+"Controller";
 
         Class<?> controllerClass = Class.forName(chosenController);
         Object controller = controllerClass.newInstance();

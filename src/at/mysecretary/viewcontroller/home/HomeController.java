@@ -1,4 +1,4 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.home;
 
 import at.mysecretary.model.User;
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -39,7 +40,7 @@ public class HomeController implements Initializable {
     public void show_home(Pane pn_secPane) {
         Pane newLoadedPane = null;
         try {
-            newLoadedPane = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../home/Home.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +53,7 @@ public class HomeController implements Initializable {
         for (int i = 0; i < nodes.length; i++) {
             try {
                 final int j = i;
-                nodes[i] = FXMLLoader.load(getClass().getResource("DashboardTermin.fxml"));
+                nodes[i] = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../dashboard/DashboardTermin.fxml")));
 
                 nodes[i].setOnMouseEntered(event -> {
                     nodes[j].setStyle("-fx-border-radius: 5;"+"-fx-border-color: #f42d76");

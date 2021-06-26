@@ -1,4 +1,4 @@
-package at.mysecretary.viewcontroller;
+package at.mysecretary.viewcontroller.login;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -46,6 +46,7 @@ public class LoginController implements Initializable {
 
     /**
      * Method gets called every time this class gets opened
+     * Calls the methode createSignInTransition, this Method creates a Transition and shows the SignIn.fxml file
      */
     @Override
     public void initialize (URL url, ResourceBundle rb) {
