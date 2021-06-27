@@ -8,6 +8,13 @@ import java.io.IOException;
 
 public class SignoutController {
 
+    /*
+        Author: Luttenberger Fabian
+        Created on: 25.06.2021
+        Description: Handles the sign out button
+                     Shows the login controller and closes the dashboard
+     */
+
     /**
      * Default constructor
      */
