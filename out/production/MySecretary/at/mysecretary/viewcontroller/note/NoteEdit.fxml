@@ -7,17 +7,17 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="793.0" styleClass="scroll-pane" stylesheets="@../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.NoteEditController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="793.0" styleClass="scroll-pane" stylesheets="@../../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.note.NoteEditController">
    <children>
-      <Button fx:id="btn_notesave" layoutX="111.0" layoutY="107.0" mnemonicParsing="false" onAction="#saveNote" prefHeight="34.0" prefWidth="130.0" stylesheets="@../design/Note.css" text="Save" textFill="WHITE" />
+      <Button fx:id="btn_notesave" layoutX="111.0" layoutY="107.0" mnemonicParsing="false" onAction="#saveNote" prefHeight="34.0" prefWidth="130.0" stylesheets="@../../design/Note.css" text="Save" textFill="WHITE" />
       <Line endX="492.99993896484375" endY="-1.52587890625E-5" layoutX="203.0" layoutY="159.0" startX="-107.0" startY="-1.52587890625E-5" stroke="WHITE" style="-fx-fill: #28272f;" />
-      <TextArea fx:id="txt_notedescription" layoutX="111.0" layoutY="239.0" prefHeight="231.0" prefWidth="570.0" promptText="Text" styleClass="text-area" stylesheets="@../design/Note.css">
+      <TextArea fx:id="txt_notedescription" layoutX="111.0" layoutY="239.0" prefHeight="231.0" prefWidth="570.0" promptText="Text" styleClass="text-area" stylesheets="@../../design/Note.css">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </TextArea>
       <Button fx:id="btn_notecancel" layoutX="551.0" layoutY="107.0" mnemonicParsing="false" onAction="#cancelNote" prefHeight="34.0" prefWidth="130.0" text="Cancel" textFill="WHITE" />
-      <TextField fx:id="txt_notetitle" layoutX="111.0" layoutY="172.0" prefHeight="34.0" prefWidth="570.0" promptText="Title" styleClass="noteInput" stylesheets="@../design/Note.css">
+      <TextField fx:id="txt_notetitle" layoutX="111.0" layoutY="172.0" prefHeight="34.0" prefWidth="570.0" promptText="Title" styleClass="noteInput" stylesheets="@../../design/Note.css">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

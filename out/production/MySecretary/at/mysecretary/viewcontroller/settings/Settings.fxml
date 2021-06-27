@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.SettingsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.settings.SettingsController">
     <children>
-        <VBox prefHeight="576.0" prefWidth="793.0" stylesheets="@../design/Dashboard.css">
+        <VBox prefHeight="576.0" prefWidth="793.0" stylesheets="@../../design/Settings.css">
             <children>
-                <Pane fx:id="pnl_settings" prefHeight="576.0" prefWidth="793.0" styleClass="pane-right" stylesheets="@../design/Dashboard.css">
+                <Pane fx:id="pnl_settings" prefHeight="576.0" prefWidth="793.0" styleClass="pane-right" stylesheets="@../../design/Settings.css">
                     <children>
                         <HBox alignment="CENTER_LEFT" layoutX="32.5" layoutY="100.0" prefHeight="42.0" prefWidth="712.0" spacing="40.0">
                             <children>
@@ -25,21 +25,21 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="80" styleClass="setting" stylesheets="@../design/Dashboard.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="80" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_firstName" prefHeight="17.0" prefWidth="59.0" text="First Name" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <TextField fx:id="txt_firstName" disable="true" prefHeight="25.0" prefWidth="111.0" styleClass="textField" stylesheets="@../design/Dashboard.css" text="test">
+                                <TextField fx:id="txt_firstName" disable="true" prefHeight="25.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css" text="test">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
                                 </TextField>
                                 <ImageView fitHeight="31.0" fitWidth="25.0" onMouseClicked="#editFirstName" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/at/mysecretary/images/icons8_exit_30px.png" />
+                                        <Image url="@/at/mysecretary/images/icons8-edit-42.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -47,21 +47,21 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="402.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="82" styleClass="setting" stylesheets="@../design/Dashboard.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="402.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="82" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_lastName" prefHeight="17.0" prefWidth="59.0" text="Last Name" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <TextField fx:id="txt_lastName" disable="true" prefHeight="25.0" prefWidth="111.0" styleClass="textField" stylesheets="@../design/Dashboard.css" text="test">
+                                <TextField fx:id="txt_lastName" disable="true" prefHeight="25.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css" text="test">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
                                 </TextField>
                                 <ImageView fitHeight="31.0" fitWidth="25.0" onMouseClicked="#editLastName" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/at/mysecretary/images/icons8_exit_30px.png" />
+                                        <Image url="@/at/mysecretary/images/icons8-edit-42.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -69,21 +69,21 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../design/Dashboard.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_currentPassword" prefHeight="17.0" prefWidth="117.0" text="Current Password" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <PasswordField fx:id="pwd_currentPassword" prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../design/Dashboard.css">
+                                <PasswordField fx:id="pwd_currentPassword" prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
                                 </PasswordField>
                                 <ImageView fitHeight="31.0" fitWidth="25.0" onMouseClicked="#showChangePassword" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/at/mysecretary/images/icons8_exit_30px.png" />
+                                        <Image url="@/at/mysecretary/images/icons8-edit-42.png" />
                                     </image>
                                     <HBox.margin>
                                         <Insets left="60.0" />
@@ -94,14 +94,14 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox fx:id="hbox_password" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../design/Dashboard.css">
+                        <HBox fx:id="hbox_password" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_password" prefHeight="17.0" prefWidth="117.0" text="New Password" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <PasswordField fx:id="pwd_password" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../design/Dashboard.css">
+                                <PasswordField fx:id="pwd_password" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -111,14 +111,14 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox fx:id="hbox_confirmPassword" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="300.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../design/Dashboard.css">
+                        <HBox fx:id="hbox_confirmPassword" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="300.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_confirmPassword" prefHeight="17.0" prefWidth="117.0" text="Confirm Password" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <PasswordField fx:id="pwd_confirmPassword" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../design/Dashboard.css">
+                                <PasswordField fx:id="pwd_confirmPassword" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -129,8 +129,8 @@
                             </effect>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="410.0" prefHeight="42.0" prefWidth="363.0" spacing="40" >
-                            <Button fx:id="btn_discardChanges" prefHeight="35.0" onAction="#discardChanges" text="Discard Changes" styleClass="discard-changes-button" stylesheets="@../design/Dashboard.css"/>
-                            <Button fx:id="btn_safeChanges" prefHeight="35.0" onAction="#safeChanges" text="Safe Changes" styleClass="safe-changes-button" stylesheets="@../design/Dashboard.css" />
+                            <Button fx:id="btn_discardChanges" prefHeight="35.0" onAction="#discardChanges" text="Discard Changes" styleClass="discard-changes-button" stylesheets="@../../design/Settings.css"/>
+                            <Button fx:id="btn_safeChanges" prefHeight="35.0" onAction="#safeChanges" text="Safe Changes" styleClass="safe-changes-button" stylesheets="@../../design/Settings.css" />
                         </HBox>
                     </children>
                 </Pane>

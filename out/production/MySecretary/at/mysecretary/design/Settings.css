@@ -1,0 +1,46 @@
+/* Sets background for left/right vbox */
+.v-box-left{
+    -fx-background-color: #28272f;
+}
+
+.pane-right{
+    -fx-background-color: #38383e;
+}
+
+.textField {
+    -fx-background-color: transparent;
+    -fx-border-color: #28272f;
+    -fx-border-radius: 5;
+    -fx-text-fill: white;
+}
+
+PasswordField {
+    -fx-prompt-text-fill: grey;
+}
+
+.setting{
+    -fx-background-color: #38383e;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+}
+
+.setting-image {
+    -fx-background-color: #f42d76;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+    -fx-background-radius: 2;
+}
+
+.discard-changes-button {
+    -fx-background-color: #28272f;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+    -fx-text-fill: white;
+}
+
+.safe-changes-button {
+    -fx-background-color: #f42d76;
+    -fx-border-radius: 5;
+    -fx-border-insets: 0;
+    -fx-text-fill: #28272f;
+}

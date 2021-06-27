@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:id="itemNote" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickOnNoteListItem" prefHeight="53.0" prefWidth="695.0" spacing="60.0" styleClass="single-note" stylesheets="@../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.NoteListItemController">
+<HBox fx:id="itemNote" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickOnNoteListItem" prefHeight="53.0" prefWidth="695.0" spacing="60.0" styleClass="single-note" stylesheets="@../../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.note.NoteListItemController">
    <children>
       <Label fx:id="lbl_title" maxWidth="-Infinity" prefWidth="100.0" text="Title" textFill="#b7c3d7">
          <opaqueInsets>

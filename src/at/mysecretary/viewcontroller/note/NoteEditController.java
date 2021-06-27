@@ -29,8 +29,8 @@ public class NoteEditController
     }
 
     private void addNote(){
-        Note cacheNote = new Note(txt_notedescription.getText(),txt_notetitle.getText());
-        HomeController.currentUser.addNote(cacheNote);
+        iNote = new Note(txt_notedescription.getText(),txt_notetitle.getText());
+        HomeController.currentUser.addNote(iNote);
         System.out.println(HomeController.currentUser.toString());
         HomeController.currentUser.save();
         SerializationFactory.getInstance().persist();
