@@ -19,30 +19,57 @@ import java.util.ResourceBundle;
 
 public class SettingsController implements Initializable {
 
+    /**
+     * TextField: TextField where the user enters his first name
+     */
     @FXML
     TextField txt_firstName;
 
+    /**
+     * TextField: TextField where the user enters his last name
+     */
     @FXML
     TextField txt_lastName;
 
+    /**
+     * PasswordField: PasswordField where the user has to enter his current password
+     */
     @FXML
     PasswordField pwd_currentPassword;
 
+    /**
+     * Label: Shows the text "Current Password"
+     */
     @FXML
     Label lbl_currentPassword;
 
+    /**
+     * PasswordField: PasswordField where the user can enter his new password
+     */
     @FXML
     PasswordField pwd_password;
 
+    /**
+     * PasswordField: PasswordField where the user has to enter the same password as in the "new password" field
+     */
     @FXML
     PasswordField pwd_confirmPassword;
 
+    /**
+     * HBox: This hbox is for the new password field
+     */
     @FXML
     HBox hbox_password;
 
+    /**
+     * HBox: This hbox is for the confirm password field
+     */
     @FXML
     HBox hbox_confirmPassword;
 
+    /**
+     * Boolean: True if the user wants to create a new password
+     */
     boolean isNewPassword;
 
     /**
@@ -73,28 +100,40 @@ public class SettingsController implements Initializable {
         pn_secPane.getChildren().add(newLoadedPane);
     }
 
+    /**
+     * Assigns the TextFields for the first and last name with the specific values
+     */
     private void fillFields() {
         txt_firstName.setText(HomeController.currentUser.getFirstname());
         txt_lastName.setText(HomeController.currentUser.getLastname());
     }
 
 
+    /**
+     * Allows the user to edit his first name
+     */
     @FXML
     public void editFirstName() {
         txt_firstName.setDisable(false);
         txt_firstName.requestFocus();
     }
 
-
+    /**
+     * Allows the user to edit his last name
+     */
     @FXML
     public void editLastName() {
         txt_lastName.setDisable(false);
         txt_lastName.requestFocus();
     }
 
+    /**
+     * Shows the hbox for the new password and the confirm password view
+     */
     @FXML
     public void showChangePassword() {
 
+        // If the entered password equals the password of the user
         if (Objects.equals(PasswordManagement.encryptPassword(pwd_currentPassword.getText()), HomeController.currentUser.getPasswordHash())) {
             hbox_password.setVisible(true);
             hbox_confirmPassword.setVisible(true);
@@ -103,6 +142,7 @@ public class SettingsController implements Initializable {
             pwd_password.requestFocus();
             isNewPassword = true;
         }
+        // Otherwise
         else {
             pwd_currentPassword.setText("");
             pwd_currentPassword.setPromptText("Wrong Password!");
@@ -110,6 +150,10 @@ public class SettingsController implements Initializable {
 
     }
 
+    /**
+     * Gets called if the user presses on the "discard changes" button
+     * Resets each field
+     */
     @FXML
     public void discardChanges() {
         txt_firstName.setText(HomeController.currentUser.getFirstname());
@@ -122,6 +166,10 @@ public class SettingsController implements Initializable {
         hbox_confirmPassword.setVisible(false);
     }
 
+    /**
+     * Gets called if the user presses on the "safe changes" button
+     * Safes the new values for the user
+     */
     @FXML
     public void safeChanges() {
         HomeController.currentUser.setFirstname(txt_firstName.getText().trim());
