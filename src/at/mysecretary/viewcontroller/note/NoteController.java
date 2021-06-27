@@ -7,8 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +31,11 @@ public class NoteController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         fillFields();
+        btn_noteadd.setStyle(btn_noteadd.getStyle()+ "\n" +
+                "-fx-background-image: url('/at/mysecretary/images/icons8_plus_50px.png');\n" +
+                "-fx-background-size: 22px 22px;\n" +
+                "-fx-background-repeat: no-repeat;\n" +
+                "-fx-background-position: center;");
     }
 
 

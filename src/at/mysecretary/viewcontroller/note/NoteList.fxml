@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.note.NoteController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.note.NoteController">
    <children>
       <VBox prefHeight="576.0" prefWidth="793.0" stylesheets="@../../design/Dashboard.css">
          <children>
@@ -22,7 +27,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Button fx:id="btn_noteadd" mnemonicParsing="false" onAction="#add_Note" style="-fx-border-color: #f42d76; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../../design/Dashboard.css" text="ADD" textFill="#e7e5e5" />
+                        <Button fx:id="btn_noteadd" mnemonicParsing="false" onAction="#add_Note" scaleX="1.5" scaleY="1.5" style="-fx-border-radius: 15px;" stylesheets="@../../design/Note.css" text="   " textFill="#e7e5e5" translateX="-30.0" />
                      </children>
                   </HBox>
                   <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="150.0" prefHeight="400.0" prefWidth="746.0" stylesheets="@../../design/Dashboard.css">
