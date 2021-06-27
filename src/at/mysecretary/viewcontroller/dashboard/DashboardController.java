@@ -25,47 +25,51 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    /**
+     * Counts how many times the user has been logged in and the dashboard has been opened
+     */
     static int counterDashboards = 0;
 
+
+    /**
+     * The stage that gets opened after logging in
+     */
     static Stage dashboardStage = new Stage();
 
-    static User currentUser;
 
+    /**
+     * 2 double variables, so the dashboard gets exactly dragged to where it should be
+     */
     double x,y;
 
 
-    @FXML
-    private Button btn_home;
-
-    @FXML
-    private Button btn_passwords;
-
-
-    @FXML
-    private Button btn_calendar;
-
-
-    @FXML
-    private Button btn_note;
-
-    @FXML
-    private Button btn_secretary;
-
-    @FXML
-    private Button btn_settings;
-
-    @FXML
-    private Button btn_signout;
-
+    /**
+     * Image of an exit button
+     */
     @FXML
     private ImageView img_exit;
 
+
+    /**
+     * Image of a minimize button
+     */
     @FXML
     private ImageView img_minimize;
 
+
+    /**
+     * The pane on the right side, which gets passed as a parameter
+     * The opened Panels will be inserted into this panel
+     */
     @FXML
     private Pane pn_secPane;
 
+
+    /**
+     * Method, that gets called when the Class is opened
+     * Creates a new Controller and opens the show_home Method, Home-Screen is shown
+     * Sets the image for exit and minimize button
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeController homeController= new HomeController();
@@ -74,6 +78,9 @@ public class DashboardController implements Initializable {
         img_minimize.setImage(new Image("/at/mysecretary/images/icons8_minimize_48px.png"));
     }
 
+    /**
+     * Method that opens the Dashboard after being logged in
+     */
     public void showDashboard() throws IOException {
         Parent DashboardRoot = FXMLLoader.load(Objects.requireNonNull(DashboardController.class.getResource("Dashboard.fxml")));
         dashboardStage.setTitle("MySecretary");
@@ -100,6 +107,11 @@ public class DashboardController implements Initializable {
         dashboardStage.show();
     }
 
+
+    /**
+     * After a Dashboard-Button is pressed, this method gets called
+     * it checks the selected Button and calls the connected Method via invoking
+     */
     public void handleClicks(ActionEvent actionEvent) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
 
         String chosenPanel;
@@ -116,13 +128,25 @@ public class DashboardController implements Initializable {
         handleMethod.invoke(controller,pn_secPane);
     }
 
+
+    /**
+     * Closes the Dashboard
+     */
     public static void closeDashboard() {
         dashboardStage.close();
     }
 
+
+    /**
+     * Exits the program
+     */
     public void exit(){
         Platform.exit();
     }
+
+    /**
+     * Minimizes the program
+     */
     public void minimize(){
        dashboardStage.setIconified(true);
     }
