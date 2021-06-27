@@ -35,7 +35,11 @@ public class Secretary implements Serializable
         this.commands = new ArrayList<>();
         this.username = "";
     }
-    
+
+    /**
+     * Adds a statement if it exists.
+     * @param iStatement
+     */
     public void addStatement(Statement iStatement){
         iStatement.setUsername(getUsername());
         if (!this.statements.contains(iStatement)){
@@ -43,6 +47,10 @@ public class Secretary implements Serializable
         }
     }
 
+    /**
+     * Removes a statement if it exists.
+     * @param iStatement
+     */
     public void removeStatement(Statement iStatement){
         iStatement.setUsername(getUsername());
         if (this.statements.contains(iStatement)){
@@ -51,6 +59,10 @@ public class Secretary implements Serializable
         }
     }
 
+    /**
+     * Adds a command, if it doesn't exist.
+     * @param iCommand
+     */
     public void addCommand(Command iCommand){
         iCommand.setUsername(getUsername());
         if (!this.commands.contains(iCommand)){
@@ -58,6 +70,10 @@ public class Secretary implements Serializable
         }
     }
 
+    /**
+     * Removes a command, if it exists.
+     * @param iCommand
+     */
     public void removeCommand(Command iCommand){
         iCommand.setUsername(getUsername());
         if (this.commands.contains(iCommand)){
@@ -67,7 +83,10 @@ public class Secretary implements Serializable
     }
 
 
-    //Für Testzwecke.
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -83,6 +102,15 @@ public class Secretary implements Serializable
         return reString.toString();
     }
 
+
+    /**
+     * Method to check, if the secretary already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * This method isn't used so much, because you don't delete
+     * your secretary that often, I believe.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

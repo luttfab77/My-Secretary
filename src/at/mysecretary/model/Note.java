@@ -26,7 +26,12 @@ public class Note implements Serializable
         this.username = "";
     }
 
-    //Für Testzwecke.
+
+
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -35,6 +40,13 @@ public class Note implements Serializable
                 "\nDescription:\t" + this.description;
     }
 
+
+    /**
+     * Method to check, if the note already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

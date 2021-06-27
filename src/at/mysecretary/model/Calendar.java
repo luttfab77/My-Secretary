@@ -21,6 +21,10 @@ public class Calendar implements Serializable
     }
 
 
+    /**
+     * Adds Appointment, if it doesn't exist.
+     * @param iAppointment
+     */
     public void addAppointment(Appointment iAppointment){
         iAppointment.setUsername(getUsername());
         if (!this.appointments.contains(iAppointment)){
@@ -28,6 +32,11 @@ public class Calendar implements Serializable
         }
     }
 
+
+    /**
+     * Removes Appointment, if it exists.
+     * @param iAppointment
+     */
     public void removeAppointment(Appointment iAppointment){
         iAppointment.setUsername(getUsername());
         if (this.appointments.contains(iAppointment)){
@@ -37,7 +46,10 @@ public class Calendar implements Serializable
     }
 
 
-    //Für Testzwecke.
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -51,6 +63,12 @@ public class Calendar implements Serializable
     }
 
 
+    /**
+     * Method to check, if the calendar already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

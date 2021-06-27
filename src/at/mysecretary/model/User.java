@@ -16,6 +16,13 @@ public class User implements Serializable
     private List<Note> notes;
 
     public String getUsername() { return username; }
+
+    /**
+     * Sets the username from created user as username.
+     * Also sets the username for passwordmanager and calendar.
+     *    This is needed to find the calendar and passwordmanager.
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
         this.calendar.setUsername(username);
@@ -64,7 +71,11 @@ public class User implements Serializable
         this.secretary = new Secretary();
         this.notes = new ArrayList<>();
     }
-    
+
+    /**
+     * Adds a Note, if it doesn't exist.
+     * @param iNote
+     */
     public void addNote(Note iNote){
         iNote.setUsername(getUsername());
         if (!this.notes.contains(iNote)){
@@ -72,6 +83,10 @@ public class User implements Serializable
         }
     }
 
+    /**
+     * Removes a Note, if it exists.
+     * @param iNote
+     */
     public void removeNote(Note iNote){
         iNote.setUsername(getUsername());
         if (this.notes.contains(iNote)){
@@ -80,17 +95,37 @@ public class User implements Serializable
         }
     }
 
-
+    /**
+     * Saves a User into the objects List from SerializationFactory.
+     */
     public void save() {
         SerializationFactory.getInstance().save(this);
     }
 
+    /**
+     * Deletes a User from the objects List from SerializationFactory.
+     * ATTENTION! Do not use this Method carelessly.
+     */
+    public void remove() {
+        SerializationFactory.getInstance().remove(this);
+    }
+
+    /**
+     * You can get a User as return value, if you have the username and the password.
+     * This uses the Method from SerilisationFactory, called selectUserByUsernamePassword().
+     * @param username
+     * @param password
+     * @return
+     */
     public static User selectByUsernamePassword(String username,String password) {
         return SerializationFactory.getInstance().selectUserByUsernamePassword(username,password);
     }
 
 
-    //Für Testzwecke.
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -111,6 +146,12 @@ public class User implements Serializable
     }
 
 
+    /**
+     * Method to check, if the User already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

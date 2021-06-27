@@ -24,9 +24,12 @@ public class Command implements Serializable
         this.text = "";
         this.link = "";
     }
-    
 
-    //Für Testzwecke.
+
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -35,6 +38,13 @@ public class Command implements Serializable
                 "\nLink:\t\t\t" + this.link;
     }
 
+
+    /**
+     * Method to check, if the command already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

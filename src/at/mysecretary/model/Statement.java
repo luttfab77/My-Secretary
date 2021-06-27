@@ -20,9 +20,12 @@ public class Statement implements Serializable
     public Statement(){
         this.text = "";
     }
-    
 
-    //Für Testzwecke.
+
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -30,6 +33,13 @@ public class Statement implements Serializable
                 "\nText:\t\t\t" + this.text;
     }
 
+
+    /**
+     * Method to check, if the statement already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

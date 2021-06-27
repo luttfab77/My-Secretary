@@ -34,9 +34,12 @@ public class Appointment implements Serializable
         this.title = "";
         this.description = "";
     }
-    
 
-    //Für Testzwecke.
+
+    /**
+     * Only for test purposes.
+     * @return string
+     */
     @Override
     public String toString()
     {
@@ -48,6 +51,13 @@ public class Appointment implements Serializable
     }
 
 
+
+    /**
+     * Method to check, if the appointment already exists or not.
+     * Helps the Method contains() out, to find the right object.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
