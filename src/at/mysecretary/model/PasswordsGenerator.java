@@ -1,13 +1,5 @@
 package at.mysecretary.model;
 
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-
 public class PasswordsGenerator {
 
     private boolean letter;
@@ -21,7 +13,7 @@ public class PasswordsGenerator {
     private static int randomArr = 0;
     ArrayList<ImageView> stars = new ArrayList<>();
 
-    public PasswordsGenerator(boolean letter, boolean specialChar, boolean number, double length, TextField result, ImageView img_star1, ImageView img_star2, ImageView img_star3, ImageView img_star4, ImageView img_star5) throws FileNotFoundException {
+    public PasswordsGenerator(boolean letter, boolean specialChar, boolean number, int length) {
         this.letter = letter;
         this.number = number;
         this.specialChar = specialChar;

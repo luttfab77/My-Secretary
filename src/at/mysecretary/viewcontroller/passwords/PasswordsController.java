@@ -4,28 +4,30 @@ package at.mysecretary.viewcontroller.passwords;
 import at.mysecretary.model.PasswordsGenerator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import org.controlsfx.control.ToggleSwitch;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class PasswordsController {
+public class PasswordsController implements Initializable {
 
         public PasswordsController() {
         }
 
-
         @FXML
-        ToggleButton tb_letter = new ToggleButton();
+        ToggleSwitch tgl_characters = new ToggleSwitch();
         @FXML
-        ToggleButton tb_specialChar = new ToggleButton();
+        ToggleSwitch tgl_specialcharacters = new ToggleSwitch();
         @FXML
-        ToggleButton tb_number = new ToggleButton();
+        ToggleSwitch tgl_numbers = new ToggleSwitch();
         @FXML
         TextField txt_result = new TextField();
         @FXML
@@ -42,17 +44,11 @@ public class PasswordsController {
         ImageView img_star4 = new ImageView();
         @FXML
         ImageView img_star5 = new ImageView();
-        @FXML
-        TextField txt_letterStatus = new TextField();
-        @FXML
-        TextField txt_specialCharStatus = new TextField();
-        @FXML
-        TextField txt_numberStatus = new TextField();
 
-        boolean truthLetter = false;
-        boolean truthNumber = false;
-        boolean truthSpecialChar = false;
-        double passwdLength = 8;
+        boolean isLetter = false;
+        boolean isNumber = false;
+        boolean isSpecialCharacter = false;
+        int passwdLength = 8;
 
         public void show_passwords(Pane pn_secPane) {
             Pane newLoadedPane = null;
@@ -65,56 +61,36 @@ public class PasswordsController {
         }
 
         @FXML
-        public void setLetter() throws FileNotFoundException {
-
-            if(tb_letter.isSelected()){
-                truthLetter = true;
-                txt_letterStatus.setText("ON");
-            }else{
-                truthLetter = false;
-                txt_letterStatus.setText("OFF");
-            }
-
-            System.out.println(truthLetter);
-
-            PasswordsGenerator generatorLetter = new PasswordsGenerator(truthLetter, truthSpecialChar, truthNumber, passwdLength, txt_result, img_star1, img_star2, img_star3, img_star4, img_star5);
-        }
-
-        @FXML
-        public void setSpecialChar() throws FileNotFoundException {
-
-            if(tb_specialChar.isSelected()){
-                truthSpecialChar = true;
-                txt_specialCharStatus.setText("ON");
-            }else{
-                truthSpecialChar = false;
-                txt_specialCharStatus.setText("OFF");
-            }
-
-            PasswordsGenerator generatorLetter = new PasswordsGenerator(truthLetter, truthSpecialChar, truthNumber, passwdLength, txt_result, img_star1, img_star2, img_star3, img_star4, img_star5);
-        }
-
-        @FXML
-        public void setNumber() throws FileNotFoundException{
-
-            if(tb_number.isSelected()){
-                truthNumber = true;
-                txt_numberStatus.setText("ON");
-            }else{
-                truthNumber = false;
-                txt_numberStatus.setText("OFF");
-            }
-
-            PasswordsGenerator generatorLetter = new PasswordsGenerator(truthLetter, truthSpecialChar, truthNumber, passwdLength, txt_result, img_star1, img_star2, img_star3, img_star4, img_star5);
-        }
-
-        @FXML
         public void setPswdSize() throws FileNotFoundException{
 
-            passwdLength = sld_pswdLength.getValue();
+            passwdLength = (int) sld_pswdLength.getValue();
 
             txt_pswdSize.setText(String.valueOf((int)passwdLength));
 
-            PasswordsGenerator generatorLetter = new PasswordsGenerator(truthLetter, truthSpecialChar, truthNumber, passwdLength, txt_result, img_star1, img_star2, img_star3, img_star4, img_star5);
         }
+
+        @FXML
+        public void generatePassword() throws FileNotFoundException {
+            PasswordsGenerator generator = new PasswordsGenerator(isLetter, isSpecialCharacter, isNumber, passwdLength);
+            String generatedPassword;
+            generatedPassword = generator.generatePassword(isLetter, isSpecialCharacter, isNumber, passwdLength);
+            txt_result.setText(generatedPassword);
+        }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+            tgl_characters.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                isLetter = !isLetter;
+            });
+
+        tgl_specialcharacters.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            isSpecialCharacter = !isSpecialCharacter;
+        });
+
+        tgl_numbers.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            isNumber = !isNumber;
+        });
+
     }
+}
