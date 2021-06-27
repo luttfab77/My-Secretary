@@ -19,63 +19,52 @@ import java.util.ResourceBundle;
 
 public class PasswordsController implements Initializable {
 
-        public PasswordsController() {
+    public PasswordsController() {}
+
+    @FXML
+    ToggleSwitch tgl_characters = new ToggleSwitch();
+    @FXML
+    ToggleSwitch tgl_specialcharacters = new ToggleSwitch();
+    @FXML
+    ToggleSwitch tgl_numbers = new ToggleSwitch();
+    @FXML
+    TextField txt_result = new TextField();
+    @FXML
+    Slider sld_pswdLength = new Slider();
+    @FXML
+    TextField txt_pswdSize = new TextField();
+    @FXML
+
+    boolean isLetter = false;
+    boolean isNumber = false;
+    boolean isSpecialCharacter = false;
+    int passwdLength = 8;
+
+    public void show_passwords(Pane pn_secPane) {
+        Pane newLoadedPane = null;
+        try {
+            newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Passwords.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        pn_secPane.getChildren().add(newLoadedPane);
+    }
 
-        @FXML
-        ToggleSwitch tgl_characters = new ToggleSwitch();
-        @FXML
-        ToggleSwitch tgl_specialcharacters = new ToggleSwitch();
-        @FXML
-        ToggleSwitch tgl_numbers = new ToggleSwitch();
-        @FXML
-        TextField txt_result = new TextField();
-        @FXML
-        Slider sld_pswdLength = new Slider();
-        @FXML
-        TextField txt_pswdSize = new TextField();
-        @FXML
-        ImageView img_star1 = new ImageView();
-        @FXML
-        ImageView img_star2 = new ImageView();
-        @FXML
-        ImageView img_star3 = new ImageView();
-        @FXML
-        ImageView img_star4 = new ImageView();
-        @FXML
-        ImageView img_star5 = new ImageView();
+    @FXML
+    public void setPswdSize() throws FileNotFoundException{
 
-        boolean isLetter = false;
-        boolean isNumber = false;
-        boolean isSpecialCharacter = false;
-        int passwdLength = 8;
+        passwdLength = (int) sld_pswdLength.getValue();
+        txt_pswdSize.setText(String.valueOf((int)passwdLength));
 
-        public void show_passwords(Pane pn_secPane) {
-            Pane newLoadedPane = null;
-            try {
-                newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Passwords.fxml")));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            pn_secPane.getChildren().add(newLoadedPane);
-        }
+    }
 
-        @FXML
-        public void setPswdSize() throws FileNotFoundException{
-
-            passwdLength = (int) sld_pswdLength.getValue();
-
-            txt_pswdSize.setText(String.valueOf((int)passwdLength));
-
-        }
-
-        @FXML
-        public void generatePassword() throws FileNotFoundException {
-            PasswordsGenerator generator = new PasswordsGenerator(isLetter, isSpecialCharacter, isNumber, passwdLength);
-            String generatedPassword;
-            generatedPassword = generator.generatePassword(isLetter, isSpecialCharacter, isNumber, passwdLength);
-            txt_result.setText(generatedPassword);
-        }
+    @FXML
+    public void generatePassword() {
+        PasswordsGenerator generator = new PasswordsGenerator(isLetter, isSpecialCharacter, isNumber, passwdLength);
+        String generatedPassword;
+        generatedPassword = generator.generatePassword(isLetter, isSpecialCharacter, isNumber, passwdLength);
+        txt_result.setText(generatedPassword);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
