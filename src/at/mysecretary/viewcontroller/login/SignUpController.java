@@ -8,13 +8,19 @@ import at.mysecretary.viewcontroller.home.HomeController;
 import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignUpController {
+public class SignUpController implements Initializable
+{
 
     /**
      * Dashboard controller
@@ -38,6 +44,17 @@ public class SignUpController {
      */
     @FXML
     private PasswordField pwd_passwordConfirm;
+
+
+    @FXML
+    ImageView img_exit;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        img_exit.setImage(new Image("/at/mysecretary/images/icons8_exit_30px.png"));
+    }
 
     /**
      * This method trys to create a new User and sign him up

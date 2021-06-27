@@ -5,11 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="animated-panel" stylesheets="@/at/mysecretary/design/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.login.SignUpController">
+   <ImageView fx:id="img_exit" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true" translateX="450.0" translateY="-85.0" />
     <Label fx:id="lbl_signup" text="Sign Up" textFill="#ffffff">
         <font>
             <Font size="20.0" />
@@ -46,12 +48,4 @@
             <Insets left="15.0" right="15.0" top="20.0" />
         </VBox.margin>
     </Button>
-   <Button fx:id="btn_exit" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="456.0" styleClass="pink-btn" text="Exit" textAlignment="CENTER" textFill="WHITE">
-      <font>
-         <Font size="17.0" />
-      </font>
-      <VBox.margin>
-         <Insets left="15.0" right="15.0" top="20.0" />
-      </VBox.margin>
-   </Button>
 </VBox>
