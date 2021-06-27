@@ -91,3 +91,9 @@
 {
     -fx-text-fill : #e7e5e5;
 }
+
+.single-appointment: hover
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+}
