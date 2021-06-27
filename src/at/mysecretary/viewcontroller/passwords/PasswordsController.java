@@ -1,84 +1,42 @@
 package at.mysecretary.viewcontroller.passwords;
 
+import at.mysecretary.model.PasswordManagement;
 import at.mysecretary.model.PasswordsGenerator;
+import at.mysecretary.model.SerializationFactory;
+import at.mysecretary.model.User;
+import at.mysecretary.viewcontroller.home.HomeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import org.controlsfx.control.ToggleSwitch;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class PasswordsController implements Initializable {
+public class PasswordsController {
 
-    // ToggleSwitch: ToggleSwitch for the characters
-    // on -> Letters in the password
-    // off -> No letters in the password
+    PasswordManagementController passwordManagementController = new PasswordManagementController();
+
     @FXML
-    ToggleSwitch tgl_characters = new ToggleSwitch();
+    TextField txt_username;
 
-    // ToggleSwitch: ToggleSwitch for the special characters
-    // on -> Special characters in the password
-    // off -> No special characters in the password
     @FXML
-    ToggleSwitch tgl_specialcharacters = new ToggleSwitch();
+    PasswordField pwd_password;
 
-    // ToggleSwitch: ToggleSwitch for the numbers
-    // on -> Numbers in the password
-    // off -> No numbers in the password
-    @FXML
-    ToggleSwitch tgl_numbers = new ToggleSwitch();
+    static Pane actualPane;
 
-    // Slider: Slider for the password length
-    @FXML
-    Slider sld_pswdLength = new Slider();
-
-    // TextField: Shows the generated password
-    @FXML
-    TextField txt_result = new TextField();
-
-    // TextField: Shows the length of the password
-    @FXML
-    TextField txt_pswdSize = new TextField();
-
-    boolean isLetter = false;
-    boolean isNumber = false;
-    boolean isSpecialCharacter = false;
-    int passwdLength = 8;
-
-    /**
-     * Default constructor
-     */
-    public PasswordsController() {}
-
-    /**
-     * Adds an Listener for the several ToggleSlides
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        // If the state of the tgl_characters ToggleSlide changes -> isLetter = true if it was false || isLetter = false if it was true
-        tgl_characters.selectedProperty().addListener((observable, oldValue, newValue) -> isLetter = !isLetter);
-
-        // If the state of the tgl_specialcharacters ToggleSlide changes -> isLetter = true if it was false || isLetter = false if it was true
-        tgl_specialcharacters.selectedProperty().addListener((observable, oldValue, newValue) -> isSpecialCharacter = !isSpecialCharacter);
-
-        // If the state of the tgl_numbers ToggleSlide changes -> isLetter = true if it was false || isLetter = false if it was true
-        tgl_numbers.selectedProperty().addListener((observable, oldValue, newValue) -> isNumber = !isNumber);
-
-    }
-
-    /**
-     * Shows the Passwords.fxml file
-     */
     public void show_passwords(Pane pn_secPane) {
+        actualPane = pn_secPane;
         Pane newLoadedPane = null;
         try {
-            newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Passwords.fxml")));
+            newLoadedPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PasswordManagementLogin.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,27 +44,53 @@ public class PasswordsController implements Initializable {
     }
 
     /**
-     * Gets called if the user changes the passwordLength Slider
+     * This method trys to sign in the user
      */
     @FXML
-    public void setPasswordLength() {
+    private void signInUser() throws IOException {
 
-        passwdLength = (int) sld_pswdLength.getValue();
-        txt_pswdSize.setText(String.valueOf(passwdLength));
+        User passwordUser = new User();
+        passwordUser.setUsername(txt_username.getText().toLowerCase());
+        passwordUser.setPasswordHash(PasswordManagement.encryptPassword(pwd_password.getText().trim()));
 
+        // If the username equals the current user and the password typed in belongs to the user
+        if ((HomeController.currentUser.getUsername().equals(passwordUser.getUsername())) && (HomeController.currentUser.getPasswordHash().equals(passwordUser.getPasswordHash()))) {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PasswordManagement.fxml"));
+            Pane pane = null;
+            try
+            {
+                pane = fxmlLoader.load();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            PasswordManagementController passwordManagementController = fxmlLoader.getController();
+            passwordManagementController.fillFields();
+            passwordManagementController.show_passwordManagement(actualPane, pane);
+        }
+        // Otherwise the actor gets a notification that he entered the wrong username and / or password
+        else {
+            txt_username.setText("");
+            txt_username.setPromptText("Wrong username and / or password!");
+            pwd_password.setText("");
+        }
     }
 
     /**
-     * Gets called if the user presses on the "Generate" button
-     * Generates a random password with the chosen settings
+     * If the user presses the "ENTER" key he tries to call the method "signInUser"
      */
     @FXML
-    public void generatePassword() {
-        // Creating a new PasswordsGenerator
-        PasswordsGenerator generator = new PasswordsGenerator(isLetter, isSpecialCharacter, isNumber, passwdLength);
-        String generatedPassword;
-        generatedPassword = generator.generatePassword(isLetter, isSpecialCharacter, isNumber, passwdLength);
-        // GeneratedPassword gets the new text in the txt_result TextField
-        txt_result.setText(generatedPassword);
+    public void checkEnter(){
+        pwd_password.setOnKeyPressed(event -> {
+            if(event.getCode().equals(KeyCode.ENTER)){
+                try {
+                    signInUser();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
+
+
 }
