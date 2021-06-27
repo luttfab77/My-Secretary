@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -29,6 +30,8 @@ public class CalendarItemController implements Initializable
     FXMLLoader fxmlLoader = null;
     CalendarListPerDateController calendarListPerDateController = null;
     Pane pane = null;
+
+    LocalDate pickedDate;
 
 
     @Override
@@ -51,6 +54,7 @@ public class CalendarItemController implements Initializable
     public void clickOnSingleCalendarItem()
     {
         calendarListPerDateController.appointments.addAll(appointments);
+        calendarListPerDateController.pickedDate = this.pickedDate;
         calendarListPerDateController.fillFields();
         calendarListPerDateController.show_calendarListPerDate(CalendarController.actualPane,pane);
     }

@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class CalendarListPerDateItemController implements Initializable
@@ -25,6 +26,7 @@ public class CalendarListPerDateItemController implements Initializable
     Pane pane = null;
 
     Appointment appointment;
+    LocalDate pickedDate;
 
 
     @Override
@@ -51,6 +53,7 @@ public class CalendarListPerDateItemController implements Initializable
     public void clickOnCalendarListPerDateItem(){
         calendarAppointmentEditController.iAppointment = this.appointment;
         calendarAppointmentEditController.fillFields();
+        calendarAppointmentEditController.pickedDate = pickedDate;
         calendarAppointmentEditController.show_noteEdit(CalendarController.actualPane,pane);
     }
 }

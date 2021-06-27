@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.settings.SettingsController">
     <children>
@@ -13,7 +21,7 @@
             <children>
                 <Pane fx:id="pnl_settings" prefHeight="576.0" prefWidth="793.0" styleClass="pane-right" stylesheets="@../../design/Settings.css">
                     <children>
-                        <HBox alignment="CENTER_LEFT" layoutX="32.5" layoutY="100.0" prefHeight="42.0" prefWidth="712.0" spacing="40.0">
+                        <HBox alignment="CENTER_LEFT" layoutX="32.5" layoutY="50.0" prefHeight="42.0" prefWidth="712.0" spacing="40.0">
                             <children>
                                 <Label fx:id="lbl_accountInfo" layoutX="57.0" layoutY="25.0" text="Account Info" textFill="#f42d76">
                                     <font>
@@ -25,7 +33,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="80" styleClass="setting" stylesheets="@../../design/Settings.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="115.0" prefHeight="42.0" prefWidth="363.0" spacing="80" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_firstName" prefHeight="17.0" prefWidth="59.0" text="First Name" textFill="#b7c3d7">
                                     <HBox.margin>
@@ -47,7 +55,7 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="402.5" layoutY="190.0" prefHeight="42.0" prefWidth="363.0" spacing="82" styleClass="setting" stylesheets="@../../design/Settings.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="402.5" layoutY="115.0" prefHeight="42.0" prefWidth="363.0" spacing="82" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_lastName" prefHeight="17.0" prefWidth="59.0" text="Last Name" textFill="#b7c3d7">
                                     <HBox.margin>
@@ -69,7 +77,7 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
+                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="170.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
                             <children>
                                 <Label fx:id="lbl_currentPassword" prefHeight="17.0" prefWidth="117.0" text="Current Password" textFill="#b7c3d7">
                                     <HBox.margin>
@@ -94,14 +102,14 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox fx:id="hbox_password" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="245.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
+                        <HBox fx:id="hbox_password" alignment="CENTER_LEFT" layoutX="402.5" layoutY="170.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css" visible="false">
                             <children>
                                 <Label fx:id="lbl_password" prefHeight="17.0" prefWidth="117.0" text="New Password" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <PasswordField fx:id="pwd_password" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css">
+                                <PasswordField fx:id="pwd_password" prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css" text=" ">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -111,14 +119,14 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox fx:id="hbox_confirmPassword" alignment="CENTER_LEFT" visible="false" layoutX="402.5" layoutY="300.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css">
+                        <HBox fx:id="hbox_confirmPassword" alignment="CENTER_LEFT" layoutX="402.5" layoutY="225.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css" visible="false">
                             <children>
                                 <Label fx:id="lbl_confirmPassword" prefHeight="17.0" prefWidth="117.0" text="Confirm Password" textFill="#b7c3d7">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Label>
-                                <PasswordField fx:id="pwd_confirmPassword" text=" " prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css">
+                                <PasswordField fx:id="pwd_confirmPassword" prefHeight="27.0" prefWidth="111.0" styleClass="textField" stylesheets="@../../design/Settings.css" text=" ">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -128,10 +136,48 @@
                                 <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
                             </effect>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="410.0" prefHeight="42.0" prefWidth="363.0" spacing="40" >
-                            <Button fx:id="btn_discardChanges" prefHeight="35.0" onAction="#discardChanges" text="Discard Changes" styleClass="discard-changes-button" stylesheets="@../../design/Settings.css"/>
-                            <Button fx:id="btn_safeChanges" prefHeight="35.0" onAction="#safeChanges" text="Safe Changes" styleClass="safe-changes-button" stylesheets="@../../design/Settings.css" />
+                        <HBox alignment="CENTER_LEFT" layoutX="27.5" layoutY="280.0" prefHeight="42.0" prefWidth="363.0" spacing="40">
+                            <Button fx:id="btn_discardChanges" onAction="#discardChanges" prefHeight="35.0" styleClass="button" stylesheets="@../../design/Settings.css" text="Discard Changes" />
+                            <Button fx:id="btn_saveChanges" onAction="#saveChanges" prefHeight="35.0" styleClass="button" stylesheets="@../../design/Settings.css" text="Save Changes" />
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="32.5" layoutY="350.0" prefHeight="42.0" prefWidth="712.0" spacing="40.0">
+                            <children>
+                                <Label fx:id="lbl_deleteAccount" layoutX="57.0" layoutY="25.0" text="Delete Account" textFill="#f42d76">
+                                    <font>
+                                        <Font size="26.0" />
+                                    </font>
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="400.0" prefHeight="58.0" prefWidth="410.0" spacing="40">
+                            <children>
+                                <Label fx:id="lbl_deleteInfo" layoutX="55.0" layoutY="25.0" prefHeight="63.0" prefWidth="270.0" text="If you request to delete your account, your account will immediately be deleted. Your deletion will be irreversible." textFill="#f80000" wrapText="true">
+                                    
+                                </Label>
+                        <Button fx:id="btn_deleteAccount" onAction="#handleDelete" prefHeight="35.0" prefWidth="100.0" stylesheets="@../../design/Settings.css" text="Delete Account" />
+                            </children>
+                        </HBox>
+                  <HBox fx:id="hbox_delete" alignment="CENTER_LEFT" layoutX="403.0" layoutY="408.0" prefHeight="42.0" prefWidth="363.0" spacing="21" styleClass="setting" stylesheets="@../../design/Settings.css" visible="false">
+                     <children>
+                        <Label fx:id="lbl_deletePassword" prefHeight="17.0" prefWidth="117.0" text="Current Password" textFill="#b7c3d7">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <PasswordField fx:id="pwd_deletePassword" onKeyTyped="#checkPassword" prefHeight="27.0" prefWidth="200.0" styleClass="textField" stylesheets="@../../design/Settings.css">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </PasswordField>
+                     </children>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+                     </effect>
+                  </HBox>
+                  <Button fx:id="btn_finalizeDelete" layoutX="666.0" layoutY="488.0" onAction="#deleteAccount" prefHeight="35.0" styleClass="button" stylesheets="@../../design/Settings.css" text="Delete Account" visible="false"/>
                     </children>
                 </Pane>
             </children>

@@ -87,7 +87,14 @@ public class CalendarController implements Initializable
                     if (HomeController.currentUser.getCalendar().getAppointments().get(j).getStartdate().equals(
                             LocalDate.of(actualYearMonth.getYear(), actualYearMonth.getMonth(), (i + 1))))
                     {
-                        controller.vbox_appointmentTitles.getChildren().add(new Label(HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle()));
+                        if (HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle().equals(""))
+                        {
+                            controller.vbox_appointmentTitles.getChildren().add(new Label("No Title..."));
+                        }
+                        else
+                        {
+                            controller.vbox_appointmentTitles.getChildren().add(new Label(HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle()));
+                        }
                         controller.appointments.add(HomeController.currentUser.getCalendar().getAppointments().get(j));
                     }
                 }
@@ -95,6 +102,7 @@ public class CalendarController implements Initializable
 
                 //Set date for single CalendarItems.
                 controller.lbl_date.setText((i+1)+"."+actualYearMonth.getMonth().getValue()+".");
+                controller.pickedDate = LocalDate.of(actualYearMonth.getYear(),actualYearMonth.getMonth(),(i+1));
 
                 //Dings - adding Nodes (CalendarItems) to the Gridpane
                 if (gpcol == 7)
@@ -114,12 +122,14 @@ public class CalendarController implements Initializable
     @FXML
     public void clickOnNextMonth(){
         actualYearMonth = actualYearMonth.plusMonths(1);
+        lbl_yearmonth.setText(actualYearMonth.getYear()+" "+actualYearMonth.getMonth());
         fillFields();
     }
 
     @FXML
     public void clickOnPrevMonth(){
         actualYearMonth = actualYearMonth.minusMonths(1);
+        lbl_yearmonth.setText(actualYearMonth.getYear()+" "+actualYearMonth.getMonth());
         fillFields();
     }
 }

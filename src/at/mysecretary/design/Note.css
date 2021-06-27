@@ -86,3 +86,8 @@
 .scroll-pane > .corner {
     -fx-background-color: #38383e;
 }
+
+.label
+{
+    -fx-text-fill : #e7e5e5;
+}

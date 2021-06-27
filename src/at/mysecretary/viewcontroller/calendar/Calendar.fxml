@@ -41,15 +41,21 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button fx:id="btn_prevmonth" mnemonicParsing="false" onAction="#clickOnPrevMonth" text="&lt;" />
-                  <Label fx:id="lbl_yearmonth" alignment="CENTER" contentDisplay="CENTER" text="June" textFill="WHITE">
+                  <Button fx:id="btn_prevmonth" mnemonicParsing="false" onAction="#clickOnPrevMonth" prefWidth="30.0" text="&lt;">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin></Button>
+                  <Label fx:id="lbl_yearmonth" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="2021 June" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_nextmonth" mnemonicParsing="false" onAction="#clickOnNextMonth" text="&gt;" />
+                  <Button fx:id="btn_nextmonth" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clickOnNextMonth" prefWidth="30.0" text="&gt;">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>

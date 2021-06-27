@@ -31,16 +31,19 @@ PasswordField {
     -fx-background-radius: 2;
 }
 
-.discard-changes-button {
-    -fx-background-color: #28272f;
-    -fx-border-radius: 5;
-    -fx-border-insets: 0;
-    -fx-text-fill: white;
+.button
+{
+    -fx-background-color : transparent;
+    -fx-text-fill : #e7e5e5;
+    -fx-border-color: #292931;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
 }
 
-.safe-changes-button {
-    -fx-background-color: #f42d76;
-    -fx-border-radius: 5;
-    -fx-border-insets: 0;
-    -fx-text-fill: #28272f;
+.button:hover,.button:pressed,.toggle-button
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #f42d76;
+    -fx-border-radius: 5px;
+
 }
