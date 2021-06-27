@@ -20,27 +20,18 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    /**
-     * Stage for the Login Windows
-     */
+    // Stage for the Login Windows
     static Stage stage = new Stage();
 
     double x,y;
 
-    /**
-     * vbox
-     */
     @FXML
     private VBox vbox;
 
-    /**
-     * Parent for the fxml
-     */
+    // Parent for the fxml
     private Parent fxml;
 
-    /**
-     * Counter of current amount of logins
-     */
+    // Counter of current amount of logins
     static int counterLogins = 0;
 
 

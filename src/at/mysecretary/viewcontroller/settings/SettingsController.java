@@ -24,14 +24,6 @@ import java.util.ResourceBundle;
 
 public class SettingsController implements Initializable {
 
-    /*
-        Author: Luttenberger Fabian
-        Created on: 26.06.2021
-        Changed on: 27.06.2021
-        Description: Controller class for the Settings.fxml file
-                     Handles all fields and updates the user if he changes e.g his first name
-     */
-
     // TextField: TextField where the user enters his first name
     @FXML
     TextField txt_firstName;
@@ -64,15 +56,19 @@ public class SettingsController implements Initializable {
     @FXML
     HBox hbox_confirmPassword;
 
+    // Button: Button that shows the text "Delete Account"
     @FXML
     Button btn_deleteAccount;
 
+    // HBox: This hbox is for the password field to delete an account
     @FXML
     HBox hbox_delete;
 
+    // PasswordField: PasswordFiel where the user has to enter his password to be able to delete his account
     @FXML
     PasswordField pwd_deletePassword;
 
+    // Button: If the user presses on this button, his account gets deleted
     @FXML
     Button btn_finalizeDelete;
 
@@ -227,7 +223,6 @@ public class SettingsController implements Initializable {
 
     /**
      * If the user clicks on the final "Delete Account" button the current user gets removed and the login stage gets called
-     * @throws IOException
      */
     public void deleteAccount() throws IOException {
         System.out.println("Deleting user " + HomeController.currentUser.getUsername());

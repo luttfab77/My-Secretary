@@ -5,7 +5,6 @@ import at.mysecretary.model.SerializationFactory;
 import at.mysecretary.model.User;
 import at.mysecretary.viewcontroller.dashboard.DashboardController;
 import at.mysecretary.viewcontroller.home.HomeController;
-import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,34 +21,28 @@ import java.util.ResourceBundle;
 public class SignUpController implements Initializable
 {
 
-    /**
-     * Dashboard controller
-     */
+    // Dashboard controller
     DashboardController dashboardController;
 
-    /**
-     * TextField: Contains the username typed in by the user
-     */
+    // TextField: Contains the username typed in by the user
     @FXML
     private TextField txt_username;
 
-    /**
-     * PasswordField: Contains the password typed in by the user
-     */
+    // PasswordField: Contains the password typed in by the user
     @FXML
     private PasswordField pwd_password;
 
-    /**
-     * PasswordField: Contains the password typed in by the user and has to be the same as in the other PasswordField
-     */
+    // PasswordField: Contains the password typed in by the user and has to be the same as in the other PasswordField
     @FXML
     private PasswordField pwd_passwordConfirm;
 
-
+    // ImageView: Shows the exit button
     @FXML
     ImageView img_exit;
 
-
+    /**
+     * Fills the ImageView with an Image
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -61,6 +54,7 @@ public class SignUpController implements Initializable
      */
     @FXML
     private void signUpUser() throws IOException {
+        // Creates a new user and sets the username
         User newUser = new User();
         newUser.setUsername(txt_username.getText().toLowerCase().trim());
         // If the entered username is empty he gets remembered to enter an username

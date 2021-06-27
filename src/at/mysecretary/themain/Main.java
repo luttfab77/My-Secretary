@@ -3,6 +3,8 @@ package at.mysecretary.themain;
 import at.mysecretary.model.*;
 import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Application;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import javafx.stage.Stage;
@@ -31,16 +33,14 @@ public class Main extends Application {
         Appointment appt1 = new Appointment();
         appt1.setTitle("TEAMS");
         appt1.setDescription("MATHE");
-        Appointment appt2 = new Appointment();
-        appt1.setTitle("TEAMS");
-        appt1.setDescription("MATHE");
+        appt1.setStartdate(LocalDate.of(2021, 6, 1));
+        appt1.setEnddate(LocalDate.of(2021, 6, 1));
 
         Note note1 = new Note();
         note1.setTitle("Notiz 1");
 
         List<Appointment> appointments = new ArrayList<>();
         appointments.add(appt1);
-        appointments.add(appt2);
 
         List<Password> passwords = new ArrayList<>();
         passwords.add(pwd1);

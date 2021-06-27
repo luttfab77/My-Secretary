@@ -4,7 +4,6 @@ import at.mysecretary.model.SerializationFactory;
 import at.mysecretary.model.User;
 import at.mysecretary.viewcontroller.dashboard.DashboardController;
 import at.mysecretary.viewcontroller.home.HomeController;
-import at.mysecretary.viewcontroller.login.LoginController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,34 +20,28 @@ import java.util.ResourceBundle;
 public class SignInController implements Initializable
 {
 
-    /**
-     * User: User that signed in
-     */
+    // User: User that signed in
     User signedinUser;
 
-    /**
-     * Dashboard controller
-     */
+    // Dashboard controller
     DashboardController dashboardController;
 
-    /**
-     * TextField: Contains the username typed in by the user
-     */
+    // TextField: Contains the username typed in by the user
     @FXML
     TextField txt_username;
 
-    /**
-     * PasswordField: Contains the password typed in by the user
-     */
+    // PasswordField: Contains the password typed in by the user
     @FXML
     PasswordField pwd_password;
 
-
+    // ImageView: Shows the exit button
     @FXML
     ImageView img_exit;
 
 
-
+    /**
+     * Fills the ImageView with an Image
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
