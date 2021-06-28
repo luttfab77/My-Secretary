@@ -26,6 +26,7 @@ public class NoteEditController
             HomeController.currentUser.removeNote(iNote);
         }
         addNote();
+        cancelNote();
     }
 
     private void addNote(){
