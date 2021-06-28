@@ -16,7 +16,7 @@
          <children>
             <Pane fx:id="pnl_home" prefHeight="576.0" prefWidth="793.0" styleClass="pane-right" stylesheets="@../../design/Dashboard.css">
                <children>
-                  <Label fx:id="lbl_username" layoutX="57.0" layoutY="25.0" prefHeight="38.0" prefWidth="230.0" textFill="#f42d76">
+                  <Label fx:id="lbl_username" layoutX="57.0" layoutY="25.0" prefHeight="38.0" prefWidth="661.0" textFill="#f42d76">
                      <font>
                         <Font size="26.0" />
                      </font>

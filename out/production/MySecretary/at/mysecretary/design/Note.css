@@ -92,8 +92,17 @@
     -fx-text-fill : #e7e5e5;
 }
 
-.single-appointment: hover
+.single-appointment:hover
 {
     -fx-background-color: transparent;
     -fx-border-color: #f42d76;
+}
+
+.table-view {
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+}
+
+.table-column {
+    -fx-text-fill: black;
 }
