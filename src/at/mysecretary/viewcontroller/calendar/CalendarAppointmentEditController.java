@@ -39,6 +39,7 @@ public class CalendarAppointmentEditController
             HomeController.currentUser.getCalendar().removeAppointment(iAppointment);
         }
         addAppointment();
+        cancelAppointment();
     }
 
     private void addAppointment(){
