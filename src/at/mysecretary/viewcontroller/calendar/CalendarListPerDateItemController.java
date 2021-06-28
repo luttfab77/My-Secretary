@@ -29,6 +29,11 @@ public class CalendarListPerDateItemController implements Initializable
     LocalDate pickedDate;
 
 
+    /**
+     * Loads the CalendarAppointmentEdit window as pane.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -44,12 +49,23 @@ public class CalendarListPerDateItemController implements Initializable
         calendarAppointmentEditController = fxmlLoader.getController();
     }
 
+    /**
+     * Sets the Title, Startdate and Enddate for the single Elements in the CalendarListPerDate.
+     * @param title
+     * @param startdate
+     * @param enddate
+     */
     public void setTitleDates(String title, String startdate, String enddate){
         lbl_title.setText(title);
         lbl_startdate.setText(startdate);
         lbl_enddate.setText(enddate);
     }
 
+    /**
+     * If clicked on the Single VBoxes in the CalendarListPerDate, it
+     * moves on to the CalendarAppointmentEdit window, using the show_noteEdit() Method from
+     * CalendarListPerDate.
+     */
     public void clickOnCalendarListPerDateItem(){
         calendarAppointmentEditController.iAppointment = this.appointment;
         calendarAppointmentEditController.fillFields();

@@ -34,6 +34,13 @@ public class CalendarController implements Initializable
     LocalDate actualYearMonth;
 
 
+    /**
+     * If Calendar is loaded, the actual Month is set to local Month.
+     * Then the labels are set and the Calendar is filled with all the Appointments and the
+     * CalendarListPerDateItems Elements.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -47,6 +54,11 @@ public class CalendarController implements Initializable
     public CalendarController() {
     }
 
+    /**
+     * Shows the Calendar and loads it into the Pane, which is given as parameter.
+     * (It's still the Pane from DashboardController, which is overwritten all the time.)
+     * @param pn_secPane
+     */
     public void show_calendar(Pane pn_secPane) {
         actualPane = pn_secPane;
 
@@ -59,6 +71,12 @@ public class CalendarController implements Initializable
         actualPane.getChildren().add(newLoadedPane);
     }
 
+    /**
+     * Fills the Gridpane with CalendarListPerDateItem Elements.
+     * Including the Title!
+     * If there are more than 3 Appointments on one date, only "..." will be added as fourth.
+     * This is the cleanest solution.
+     */
     private void fillFields() {
 
         gp_calendar.getChildren().removeAll(gp_calendar.getChildren());
@@ -127,6 +145,10 @@ public class CalendarController implements Initializable
         }
     }
 
+    /**
+     * Handler for the ">" Button.
+     * Moves Calendar to te Next Month.
+     */
     @FXML
     public void clickOnNextMonth(){
         actualYearMonth = actualYearMonth.plusMonths(1);
@@ -134,6 +156,10 @@ public class CalendarController implements Initializable
         fillFields();
     }
 
+    /**
+     * Handler for the "<" Button.
+     * Moves Calendar to the Previous Month.
+     */
     @FXML
     public void clickOnPrevMonth(){
         actualYearMonth = actualYearMonth.minusMonths(1);

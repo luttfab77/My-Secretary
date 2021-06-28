@@ -35,6 +35,10 @@ public class CalendarAppointmentEditController
     LocalDate pickedDate;
 
 
+    /**
+     * Saves the edited Apponitment into the Calendar using the addAppointment() Method from below.
+     * If it exists, it's deleted and added again as new Appointment.
+     */
     public void saveAppointment(){
         System.out.println("Save Appointment Button Clicked.");
         if (HomeController.currentUser.getCalendar().getAppointments().contains(iAppointment)) {
@@ -43,6 +47,12 @@ public class CalendarAppointmentEditController
         addAppointment();
     }
 
+    /**
+     * Adds the Appointment using the addAppointment() Method from Calendar.
+     * If the User doesn't type in a correct Date, the pickedDate will be set.
+     * pickedDate is a LocalDate, which is set, when the User clicks on a CalendarListPerDateItem Element
+     * from the Gridpane in Calendar.
+     */
     private void addAppointment(){
         try
         {
@@ -63,6 +73,10 @@ public class CalendarAppointmentEditController
         }
     }
 
+    /**
+     * Cancels the Appointment.
+     * Goes back to the Calendar, where the Gridpane is, using the show_calendar Method from CalendarController.
+     */
     public void cancelAppointment(){
         System.out.println("Cancel Appointment Button Clicked.");
         CalendarController.actualPane.getChildren().remove(actualPane);
@@ -70,6 +84,10 @@ public class CalendarAppointmentEditController
         iCalendarController.show_calendar(CalendarController.actualPane);
     }
 
+    /**
+     * Deletes the actual Appointment, if it exists, using the removeAppointment() Method in Calendar.
+     * Then returnst to the CalendarView using the show_calendar Methode from CalendarController.
+     */
     public void deleteAppointment(){
         System.out.println("Delete Appointment Button Clicked.");
         HomeController.currentUser.getCalendar().removeAppointment(iAppointment);
@@ -78,7 +96,11 @@ public class CalendarAppointmentEditController
         SerializationFactory.getInstance().persist();
     }
 
-
+    /**
+     * Shows the Edit window for the picked Appointment.
+     * @param pn_secPane
+     * @param pane
+     */
     public void show_noteEdit(Pane pn_secPane, Pane pane)
     {
 
@@ -87,6 +109,9 @@ public class CalendarAppointmentEditController
         pn_secPane.getChildren().add(actualPane);
     }
 
+    /**
+     * Sets the Title, Description, Startdate and Enddate into the TextFields and TextAreas.
+     */
     public void fillFields()
     {
         txt_appointmenttitle.setText(this.iAppointment.getTitle());

@@ -33,6 +33,12 @@ public class CalendarListPerDateController implements Initializable
     LocalDate pickedDate;
 
 
+    /**
+     * Sets the Styles for the add and return buttons.
+     * Then fills the VBox using the fillFields() Method.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -51,6 +57,12 @@ public class CalendarListPerDateController implements Initializable
     }
 
 
+    /**
+     * For the (+) Button in the CalendarListPerDate.
+     * Just moves on to the CalendarAppointmentEdit window.
+     * Picked Date is also set.
+     * Uses the show_noteEdit() Method from CalendarAppointmentEdit.
+     */
     public void add_Appointment(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CalendarAppointmentEdit.fxml"));
         Pane pane = null;
@@ -73,6 +85,11 @@ public class CalendarListPerDateController implements Initializable
         calendarAppointmentEditController.show_noteEdit(actualPane,pane);
     }
 
+    /**
+     * Fills the CalendarListPerDate witha all the Appointments.
+     * CalendarListPerDateItem Elements are loaded (as an node Array) into the Vbox from the
+     * CalendarListPerDate.
+     */
     public void fillFields(){
         FXMLLoader fxmlLoader = null;
         Node[] nodes = new Node[appointments.size()];
@@ -97,11 +114,21 @@ public class CalendarListPerDateController implements Initializable
         }
     }
 
+    /**
+     * Handler for the single HBoxes.
+     * If clicked, the calendarListPerDate ist loaded and shown.
+     * @param pn_secPane
+     * @param pane
+     */
     public void show_calendarListPerDate(Pane pn_secPane, Pane pane){
         actualPane = pane;
         pn_secPane.getChildren().add(actualPane);
     }
 
+    /**
+     * Hanlder for the "Return" button.
+     * Goes back to the Calendar, using the show_calendar() Method from CalendarController.
+     */
     public void onClickRetreat(){
         System.out.println("Retreat Button Clicked.");
         CalendarController.actualPane.getChildren().remove(actualPane);

@@ -33,7 +33,12 @@ public class CalendarItemController implements Initializable
 
     LocalDate pickedDate;
 
-
+    /**
+     * Sets the appointments as new ArrayList of Appointments.
+     * Then loads the CalendarListPerDate Pane into the pane variable, which is defined as global.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -51,6 +56,12 @@ public class CalendarItemController implements Initializable
         calendarListPerDateController = fxmlLoader.getController();
     }
 
+    /**
+     * Handler for all the CalendarItem Elements.
+     * If clicked, the CalendarListPerDate is shown, using the show_calendarListPerDate() Method
+     * from CalendarListPerDateController.
+     * The Fields from the next window are also filled.
+     */
     public void clickOnSingleCalendarItem()
     {
         calendarListPerDateController.appointments.addAll(appointments);
