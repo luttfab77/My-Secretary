@@ -27,6 +27,11 @@ public class NoteListItemController implements Initializable
     Pane pane = null;
 
 
+    /**
+     * Sets up the NoteEditController and loads the window (Pane) into the pane, which is declared as global.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -43,6 +48,10 @@ public class NoteListItemController implements Initializable
     }
 
 
+    /**
+     * This is the Handler for the HBox, on which the user can click.
+     * Then he is redirected to the NoteEdit window, with the show_noteEdit() Method from NoteEditController.
+     */
     public void clickOnNoteListItem(){
 
         noteEditController.iNote = this.iNote;
@@ -51,6 +60,11 @@ public class NoteListItemController implements Initializable
 
     }
 
+    /**
+     * Sets The title and Description for the Single NoteListItem, shich is shown in the List.
+     * @param title
+     * @param description
+     */
     public void setTitleDescription(String title, String description){
         lbl_title.setText(title);
         lbl_description.setText(description);
