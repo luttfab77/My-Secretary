@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: #38383e; -fx-border-color: #313135; -fx-border-image-width: 2px;" stylesheets="@../../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.calendar.CalendarItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: #38383e; -fx-border-color: #313135; -fx-border-image-width: 2px;" stylesheets="@../../design/Note.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.mysecretary.viewcontroller.calendar.CalendarItemController">
    <children>
-      <VBox alignment="CENTER" onMouseClicked="#clickOnSingleCalendarItem" prefHeight="90.0" prefWidth="90.0" styleClass="single-appointment" stylesheets="@../../design/Note.css">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#clickOnSingleCalendarItem" prefHeight="90.0" prefWidth="90.0" styleClass="single-appointment" stylesheets="@../../design/Note.css">
          <children>
-            <VBox fx:id="vbox_appointmentTitles" prefHeight="80.0" prefWidth="80.0">
+            <VBox fx:id="vbox_appointmentTitles" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="80.0" VBox.vgrow="NEVER">
                <padding>
                   <Insets left="5.0" top="5.0" />
                </padding></VBox>
