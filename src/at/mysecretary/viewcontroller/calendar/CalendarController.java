@@ -65,7 +65,7 @@ public class CalendarController implements Initializable
 
         YearMonth yearMonthObject = YearMonth.of(actualYearMonth.getYear(), actualYearMonth.getMonth().getValue());
         int daysInMonth = yearMonthObject.lengthOfMonth();
-        int gprow = 0,gpcol = 0;
+        int gprow = 0,gpcol = 0,lblcounter = 0;
 
 
         FXMLLoader fxmlLoader = null;
@@ -87,17 +87,25 @@ public class CalendarController implements Initializable
                     if (HomeController.currentUser.getCalendar().getAppointments().get(j).getStartdate().equals(
                             LocalDate.of(actualYearMonth.getYear(), actualYearMonth.getMonth(), (i + 1))))
                     {
-                        if (HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle().equals(""))
+                        if (lblcounter < 3)
                         {
-                            controller.vbox_appointmentTitles.getChildren().add(new Label("No Title..."));
-                        }
-                        else
-                        {
-                            controller.vbox_appointmentTitles.getChildren().add(new Label(HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle()));
+                            if (HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle().equals(""))
+                            {
+                                controller.vbox_appointmentTitles.getChildren().add(new Label("No Title..."));
+                                lblcounter++;
+                            } else
+                            {
+                                controller.vbox_appointmentTitles.getChildren().add(new Label(HomeController.currentUser.getCalendar().getAppointments().get(j).getTitle()));
+                                lblcounter++;
+                            }
+                        }else if (lblcounter == 3){
+                            controller.vbox_appointmentTitles.getChildren().add(new Label("..."));
+                            lblcounter++;
                         }
                         controller.appointments.add(HomeController.currentUser.getCalendar().getAppointments().get(j));
                     }
                 }
+                lblcounter = 0;
 
 
                 //Set date for single CalendarItems.

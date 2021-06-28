@@ -27,6 +27,13 @@ public class NoteController implements Initializable
     public static Pane actualPane;
 
 
+    /**
+     * Uses the fillFields() Method from below, as it fills the NoteList with the Notes from currentUser.
+     * Sets the Style for the (+) Button.
+     * I don't know why I set the Style in here, but adding the image didn't work in CSS.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -39,6 +46,11 @@ public class NoteController implements Initializable
     }
 
 
+    /**
+     * Shows the Note window as a Pane in the specified DashboardController part.
+     * As Parameter there's the Pane, in which the new Pane should be loaded.
+     * @param pn_secPane
+     */
     public void show_note(Pane pn_secPane) {
 
         actualPane = pn_secPane;
@@ -52,6 +64,10 @@ public class NoteController implements Initializable
         actualPane.getChildren().add(newLoadedPane);
     }
 
+    /**
+     * Method for the (+) Button in the NoteList.
+     * Then shows the EditNote window.
+     */
     public void add_Note(){
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NoteEdit.fxml"));
@@ -69,7 +85,9 @@ public class NoteController implements Initializable
         noteEditController.show_noteEdit(actualPane,pane);
     }
 
-
+    /**
+     * Fills the NoteList with the single Notes from the currentUser.
+     */
     private void fillFields() {
 
         FXMLLoader fxmlLoader = null;

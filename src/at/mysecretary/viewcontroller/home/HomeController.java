@@ -1,5 +1,6 @@
 package at.mysecretary.viewcontroller.home;
 
+import at.mysecretary.model.Appointment;
 import at.mysecretary.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -94,21 +96,26 @@ public class HomeController implements Initializable {
     private void fillFields() {
 
         Node[] nodes = new Node[currentUser.getCalendar().getAppointments().size()];
-        for (int i = 0; i < nodes.length; i++) {
-            try {
-                final int j = i;
-                nodes[i] = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../dashboard/DashboardTermin.fxml")));
+        int i=0;
+        for (Appointment appointment: HomeController.currentUser.getCalendar().getAppointments()) {
+            if (appointment.getStartdate().equals(LocalDate.now())) {
+                try {
+                    final int j = i;
+                    nodes[i] = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../dashboard/DashboardTermin.fxml")));
 
-                nodes[i].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-border-radius: 5;"+"-fx-border-color: #f42d76");
-                });
-                nodes[i].setOnMouseExited(event ->{
-                    nodes[j].setStyle("-fx-background-color: #38383e");
-                });
-                pnl_items.getChildren().add(nodes[i]);
-            } catch (IOException e) {
-                e.printStackTrace();
+                    nodes[i].setOnMouseEntered(event -> {
+                        nodes[j].setStyle("-fx-border-radius: 5;" + "-fx-border-color: #f42d76");
+                    });
+                    nodes[i].setOnMouseExited(event -> {
+                        nodes[j].setStyle("-fx-background-color: #38383e");
+                    });
+                    pnl_items.getChildren().add(nodes[i]);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            i++;
         }
 
         String username = currentUser.getUsername().substring(0,1);
@@ -123,7 +130,6 @@ public class HomeController implements Initializable {
         lbl_appointments.setText(String.valueOf(currentUser.getCalendar().getAppointments().size()));
         lbl_notes.setText(String.valueOf(currentUser.getNotes().size()));
     }
-
-}
+    }
 
 
