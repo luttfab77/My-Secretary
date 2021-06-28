@@ -1,9 +1,6 @@
 package at.mysecretary.viewcontroller.passwords;
 
-import at.mysecretary.model.PasswordManagement;
-import at.mysecretary.model.PasswordsGenerator;
-import at.mysecretary.model.SerializationFactory;
-import at.mysecretary.model.User;
+import at.mysecretary.model.*;
 import at.mysecretary.viewcontroller.home.HomeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,16 +19,23 @@ import java.util.ResourceBundle;
 
 public class PasswordsController {
 
+    // PasswordManagementController as reference
     PasswordManagementController passwordManagementController = new PasswordManagementController();
 
-    @FXML
-    TextField txt_username;
-
+    // PasswordField: PasswordField where the user has to enter his password
     @FXML
     PasswordField pwd_password;
 
+    // TextFiel: TextField where the user has to enter his username
+    @FXML
+    TextField txt_username;
+
     static Pane actualPane;
 
+    /**
+     * Shows the PasswordManagementLogin.fxml file
+     *
+     */
     public void show_passwords(Pane pn_secPane) {
         actualPane = pn_secPane;
         Pane newLoadedPane = null;
@@ -49,6 +53,7 @@ public class PasswordsController {
     @FXML
     private void signInUser() throws IOException {
 
+        // Creating a new User with the entered username and password
         User passwordUser = new User();
         passwordUser.setUsername(txt_username.getText().toLowerCase());
         passwordUser.setPasswordHash(PasswordManagement.encryptPassword(pwd_password.getText().trim()));
@@ -56,6 +61,7 @@ public class PasswordsController {
         // If the username equals the current user and the password typed in belongs to the user
         if ((HomeController.currentUser.getUsername().equals(passwordUser.getUsername())) && (HomeController.currentUser.getPasswordHash().equals(passwordUser.getPasswordHash()))) {
 
+            // Showing the PasswordManagement.fxml file
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PasswordManagement.fxml"));
             Pane pane = null;
             try
